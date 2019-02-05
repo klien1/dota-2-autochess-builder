@@ -6,7 +6,8 @@ export default (state = {}, action) => {
 		case SELECT_HERO:
 			const { heroName } = action;
 			if (state[heroName]) return _.omit(state, heroName);
-			return { ...state, [heroName]: heroName };
+			else if (_.size(state) < 10) return { ...state, [heroName]: heroName };
+			return state;
 		default:
 			return state;
 	}

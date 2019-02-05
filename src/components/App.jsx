@@ -1,16 +1,22 @@
 import React from 'react';
-import HeroList from './HeroList';
 import { Provider } from 'react-redux';
+import Grid from '@material-ui/core/Grid';
 
 import store from '../redux/store';
+import CurrentRoster from './CurrentRoster';
+import TabBar from './TabBar';
 
 const App = () => {
 	return (
 		<Provider store={store}>
-			<div>
-				App
-				<HeroList />
-			</div>
+			<Grid container spacing={24}>
+				<Grid item md={7}>
+					<TabBar />
+				</Grid>
+				<Grid item md={5}>
+					<CurrentRoster />
+				</Grid>
+			</Grid>
 		</Provider>
 	);
 };

@@ -18,7 +18,8 @@ class HeroList extends Component {
 			return (
 				<div key={key}>
 					<img
-						onClick={() => this.highlightHero(key)}
+						onMouseDown={() => this.highlightHero(key)}
+						onDragStart={e => e.preventDefault()}
 						style={imageStyle}
 						src={this.props.images[key]}
 						alt={key}
