@@ -1,0 +1,10 @@
+export const DEMON_HUNTER = 'Demon Hunter';
+export const WARRIOR = 'Warrior';
+export const KNIGHT = 'Knight';
+export const ASSASSIN = 'Assassin';
+export const MECH = 'Mech';
+export const HUNTER = 'Hunter';
+export const DRUID = 'Druid';
+export const MAGE = 'Mage';
+export const SHAMAN = 'Shaman';
+export const WARLOCK = 'Warlock';
