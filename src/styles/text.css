@@ -1,0 +1,91 @@
+.Dragon {
+	background-color: rgb(255, 60, 0);
+}
+
+.Orc {
+	background-color: red;
+}
+
+.Beast {
+	background-color: green;
+}
+
+.Ogre {
+	background-color: deepskyblue;
+}
+
+.Undead {
+	background-color: grey;
+}
+
+.Goblin {
+	background-color: firebrick;
+}
+
+.Troll {
+	background-color: silver;
+}
+
+.Elf {
+	background-color: dodgerblue;
+}
+
+.Element {
+	background-color: yellow;
+}
+
+.Human {
+	background-color: white;
+}
+
+.Dwarf {
+	background-color: orange;
+}
+
+.Naga {
+	background-color: pink;
+}
+
+.Demon {
+	background-color: blueviolet;
+}
+
+.Warrior {
+	background-color: peachpuff;
+}
+
+.Druid {
+	background-color: darkorange;
+}
+
+.Mage {
+	background-color: turquoise;
+}
+
+.Assassin {
+	background-color: khaki;
+}
+
+.Mech {
+	background-color: sienna;
+}
+
+.Shaman {
+	background-color: rgb(81, 81, 177);
+}
+
+.Knight {
+	background-color: lightcoral;
+}
+
+.DemonHunter {
+	background-color: rgb(253, 14, 106);
+}
+
+.Hunter {
+	background-color: springgreen;
+}
+
+.Warlock {
+	background-color: mediumpurple;
+}

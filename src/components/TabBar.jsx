@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Paper from '@material-ui/core/Paper';
-import { withStyles } from '@material-ui/core/styles';
+
 import ClassHeroes from './HeroSelection/ClassHeroes';
 import RaceHeroes from './HeroSelection/RaceHeroes';
 import CostHeroes from './HeroSelection/CostHeroes';
 import AlphaHeroes from './HeroSelection/AlphaHeroes';
 import Abilities from './Abilities';
-import { Typography } from '@material-ui/core';
 
 class TabBar extends Component {
 	state = {
@@ -23,11 +22,7 @@ class TabBar extends Component {
 		const { value } = this.state;
 		return (
 			<div>
-				{/* <Paper className={this.props.classes.root}> */}
-				<Paper>
-					{/* <Typography variant='title' align='center'>
-						SORT BY
-					</Typography> */}
+				<Paper style={{ marginBottom: '1em' }}>
 					<Tabs
 						value={value}
 						onChange={this.handleChange}
@@ -55,10 +50,4 @@ class TabBar extends Component {
 	}
 }
 
-// const styles = {
-// 	root: {
-// 		flexGrow: 1
-// 	}
-// };
-// export default withStyles(styles)(TabBar);
 export default TabBar;
