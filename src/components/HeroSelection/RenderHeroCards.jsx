@@ -8,8 +8,7 @@ import _ from 'lodash';
 import images from '../../data/images';
 import '../../styles/text.css';
 import '../../styles/hero.css';
-import { selectHero } from '../../redux/actions';
-
+import { selectHero, deselectHero } from '../../redux/actions';
 import rhombus from '../../static/background/rhombus.png';
 import numbers from '../../data/numbers';
 
@@ -17,6 +16,15 @@ class RenderHeroCards extends Component {
 	static defaultProps = {
 		shouldHide: true
 	};
+
+	clickHero(heroName) {
+		const { selectedHeroes } = this.props;
+		if (selectedHeroes[heroName] !== undefined)
+			this.props.deselectHero(heroName)
+		else
+			this.props.selectHero(heroName)
+
+	}
 
 	createCards() {
 		const { heroData, selectedHeroes, shouldHide } = this.props;
@@ -41,7 +49,7 @@ class RenderHeroCards extends Component {
 					}
 					key={key}
 					className='cardStyle'
-					onMouseDown={() => this.props.selectHero(key)}>
+					onMouseDown={() => this.clickHero(key)}>
 					<CardActionArea>
 						<div style={{ position: 'relative' }}>
 							<CardMedia
@@ -85,6 +93,7 @@ class RenderHeroCards extends Component {
 	}
 }
 
+
 const mapStateToProps = state => {
 	return {
 		selectedHeroes: state.selectedHeroes
@@ -92,7 +101,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-	selectHero
+	selectHero,
+	deselectHero
 };
 
 export default connect(

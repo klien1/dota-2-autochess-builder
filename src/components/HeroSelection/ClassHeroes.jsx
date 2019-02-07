@@ -27,7 +27,6 @@ class ClassHeroes extends Component {
 					return (
 						<div key={value}>
 							<Typography variant='title'>{value}</Typography>
-
 							<RenderHeroCards heroData={this.filterHeroClass(value)} />
 						</div>
 					);
