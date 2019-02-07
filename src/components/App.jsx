@@ -10,10 +10,10 @@ const App = () => {
 	return (
 		<Provider store={store}>
 			<Grid container spacing={24}>
-				<Grid item md={8}>
+				<Grid item md={7}>
 					<TabBar />
 				</Grid>
-				<Grid item md={4}>
+				<Grid item md={5}>
 					<RosterWrapper />
 				</Grid>
 			</Grid>

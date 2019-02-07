@@ -8,8 +8,8 @@ export default class RosterWrapper extends Component {
 		return (
 			<div>
 				<CurrentRoster />
-				<CurrentUnitCount />
 				<CurrentAbilities />
+				<CurrentUnitCount />
 			</div>
 		);
 	}
