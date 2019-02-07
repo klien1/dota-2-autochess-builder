@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Typography } from '@material-ui/core';
-import HeroSelector from './HigherOrderedComponents/HeroSelector';
+import HeroSelector from '../HigherOrderedComponents/HeroSelector';
 
-import heroData from '../data/heroData';
-import RenderHeroCards from './HeroSelection/RenderHeroCards';
+import heroData from '../../data/heroData';
+import RenderHeroCards from '../HeroSelection/RenderHeroCards';
 import _ from 'lodash';
 
 class CurrentRoster extends Component {

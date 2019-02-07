@@ -27,7 +27,7 @@ export default class CostHeroes extends Component {
 				{_.map(distinctCost, value => {
 					return (
 						<div key={value} style={{ marginTop: '1em' }}>
-							<Typography variant='display1'>{value}</Typography>
+							<Typography variant='title'>{value}</Typography>
 							<RenderHeroCards heroData={this.filterHeroCost(value)} />
 						</div>
 					);

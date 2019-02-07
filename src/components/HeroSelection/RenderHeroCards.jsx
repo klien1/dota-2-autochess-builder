@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
@@ -27,7 +26,9 @@ class RenderHeroCards extends Component {
 			position: 'absolute',
 			top: '0px',
 			left: '0px',
-			padding: '0'
+			padding: '0',
+			maxWidth: '50%',
+			maxHeight: '50%'
 		};
 
 		return _.map(heroData, (value, key) => {
@@ -45,7 +46,7 @@ class RenderHeroCards extends Component {
 						<div style={{ position: 'relative' }}>
 							<CardMedia
 								draggable='false'
-								height='60'
+								height='40'
 								component='img'
 								alt={key}
 								image={images[key]}

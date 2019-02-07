@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 
 import store from '../redux/store';
-import CurrentRoster from './CurrentRoster';
+import RosterWrapper from './Roster/RosterWrapper';
 import TabBar from './TabBar';
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
 					<TabBar />
 				</Grid>
 				<Grid item md={4}>
-					<CurrentRoster />
+					<RosterWrapper />
 				</Grid>
 			</Grid>
 		</Provider>

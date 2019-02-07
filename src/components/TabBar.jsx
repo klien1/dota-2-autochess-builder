@@ -7,7 +7,7 @@ import ClassHeroes from './HeroSelection/ClassHeroes';
 import RaceHeroes from './HeroSelection/RaceHeroes';
 import CostHeroes from './HeroSelection/CostHeroes';
 import AlphaHeroes from './HeroSelection/AlphaHeroes';
-import Abilities from './Abilities';
+import Abilities from './HeroSelection/Abilities';
 
 class TabBar extends Component {
 	state = {

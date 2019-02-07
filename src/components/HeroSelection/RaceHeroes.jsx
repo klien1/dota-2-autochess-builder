@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Typography from '@material-ui/core/Typography';
 import _ from 'lodash';
 
 import heroData from '../../data/heroData';
@@ -26,6 +27,7 @@ export default class RaceHeroes extends Component {
 				{_.map(distinctRace, value => {
 					return (
 						<div key={value}>
+							<Typography variant='title'>{value}</Typography>
 							<RenderHeroCards heroData={this.filterHeroRace(value)} />
 						</div>
 					);

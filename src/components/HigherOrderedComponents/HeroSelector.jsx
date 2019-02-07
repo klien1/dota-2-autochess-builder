@@ -12,7 +12,7 @@ export default ChildComponent => {
 
 	const mapStateToProps = state => {
 		return {
-			images: state.images,
+			// images: state.images,
 			selectedHeroes: state.selectedHeroes
 		};
 	};
