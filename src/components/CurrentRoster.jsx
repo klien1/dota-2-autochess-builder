@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Typography } from '@material-ui/core';
 import HeroSelector from './HigherOrderedComponents/HeroSelector';
-import Grid from '@material-ui/core/Grid';
 
-import '../styles/wrapper.css';
 import heroData from '../data/heroData';
 import RenderHeroCards from './HeroSelection/RenderHeroCards';
 import _ from 'lodash';
@@ -22,15 +20,16 @@ class CurrentRoster extends Component {
 
 	render() {
 		return (
-			<div style={{ marginRight: '2em', marginTop: '1em' }}>
+			<div>
 				<Typography variant='h4' align='center'>
 					Current Roster
 				</Typography>
-				<Grid style={{ marginTop: '1em' }}>
-					<div className='heroWrapper'>
-						<RenderHeroCards heroData={this.filterSelectedHero()} />
-					</div>
-				</Grid>
+				<div style={{ marginTop: '1.5em' }}>
+					<RenderHeroCards
+						shouldHide={false}
+						heroData={this.filterSelectedHero()}
+					/>
+				</div>
 			</div>
 		);
 	}

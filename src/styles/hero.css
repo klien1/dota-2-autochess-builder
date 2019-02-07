@@ -1,0 +1,28 @@
+.textStyle {
+	padding: 2px;
+	background-color: black;
+	display: flex;
+}
+
+.cardWrapperStyle {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-start;
+	/* flex-direction: column; */
+}
+
+.cardStyle {
+	max-width: 80px;
+	margin: 4px;
+	margin-top: 0px;
+	padding: 0px;
+	background-color: black;
+}
+
+.overflowStyle {
+	flex: 1;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}

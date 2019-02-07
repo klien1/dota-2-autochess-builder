@@ -20,7 +20,6 @@ class ClassHeroes extends Component {
 
 	render() {
 		const uniqHeroClass = this.getDistictHeroClass();
-
 		return (
 			<div>
 				{_.map(uniqHeroClass, value => {

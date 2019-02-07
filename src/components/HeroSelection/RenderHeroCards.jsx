@@ -2,84 +2,85 @@ import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import images from '../../data/images';
 import '../../styles/text.css';
-
+import '../../styles/hero.css';
 import { selectHero } from '../../redux/actions';
-import { connect } from 'react-redux';
+
+import rhombus from '../../static/background/rhombus.png';
+import numbers from '../../data/numbers';
 
 class RenderHeroCards extends Component {
-	render() {
-		const textStyle = {
-			padding: '2px',
-			backgroundColor: 'black',
-			display: 'flex'
-		};
+	static defaultProps = {
+		shouldHide: true
+	};
 
-		const cardWrapperStyle = {
-			display: 'flex',
-			flexWrap: 'wrap',
-			alignItems: 'center',
-			justifyContent: 'center'
-		};
-
-		const cardStyle = {
-			maxWidth: 80,
-			margin: '2px',
-			marginTop: '1px',
-			padding: '2px'
-		};
-
-		const overflowStyle = {
-			flex: 1,
-			textOverflow: 'ellipsis',
-			overflow: 'hidden',
-			whiteSpace: 'nowrap'
-		};
-
-		const { heroData, selectedHeroes } = this.props;
+	createCards() {
+		const { heroData, selectedHeroes, shouldHide } = this.props;
 		if (!heroData || !selectedHeroes) return null;
-		return (
-			<div style={cardWrapperStyle}>
-				{_.map(heroData, (value, key) => {
-					return (
-						<Card
-							key={key}
-							style={cardStyle}
-							onMouseDown={() => this.props.selectHero(key)}>
-							<CardActionArea>
-								<CardMedia
-									draggable='false'
-									height='60'
-									component='img'
-									alt={key}
-									image={images[key]}
-									title={key}
-								/>
-								<div style={textStyle}>
-									{value.heroRace.map(item => {
-										return (
-											<div key={item} className={item} style={overflowStyle}>
-												<b>{item}</b>&nbsp;
-											</div>
-										);
-									})}
-								</div>
-								<div style={{ ...textStyle, paddingTop: 0 }}>
-									<div
-										className={value.heroClass.replace(' ', '')}
-										style={overflowStyle}>
-										<b>{value.heroClass}</b>
+
+		const corner = {
+			position: 'absolute',
+			top: '0px',
+			left: '0px',
+			padding: '0'
+		};
+
+		return _.map(heroData, (value, key) => {
+			return (
+				<Card
+					style={
+						shouldHide && selectedHeroes[key] !== undefined
+							? { opacity: 0.5 }
+							: {}
+					}
+					key={key}
+					className='cardStyle'
+					onMouseDown={() => this.props.selectHero(key)}>
+					<CardActionArea>
+						<div style={{ position: 'relative' }}>
+							<CardMedia
+								draggable='false'
+								height='60'
+								component='img'
+								alt={key}
+								image={images[key]}
+								title={key}
+							/>
+							<img src={rhombus} alt='rhombus' style={corner} />
+							<img
+								src={numbers[`numeric-${value.cost}-black`]}
+								alt={value.cost}
+								style={corner}
+							/>
+						</div>
+						<div className='textStyle'>
+							{value.heroRace.map(item => {
+								return (
+									<div key={item} className={`${item} overflowStyle`}>
+										<b>{item}</b>&nbsp;
 									</div>
-								</div>
-							</CardActionArea>
-						</Card>
-					);
-				})}
-			</div>
-		);
+								);
+							})}
+						</div>
+						<div className='textStyle' style={{ paddingTop: 0 }}>
+							<div
+								className={`${value.heroClass.replace(' ', '')} overflowStyle`}>
+								<b>{value.heroClass}</b>
+							</div>
+						</div>
+					</CardActionArea>
+				</Card>
+			);
+		});
+	}
+
+	render() {
+		return <div className='cardWrapperStyle'>{this.createCards()}</div>;
 	}
 }
 
