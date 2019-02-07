@@ -5,7 +5,6 @@ import RenderHeroCards from './RenderHeroCards';
 
 class AlphaHeroes extends Component {
 	render() {
-		// console.log()
 		return (
 			<div>
 				<RenderHeroCards heroData={heroData} />

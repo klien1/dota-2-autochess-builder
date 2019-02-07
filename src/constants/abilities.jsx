@@ -127,7 +127,7 @@ export const DRAGON3 = `All friendly dragons have 100 mana when battle starts.`;
 // (2): Hex an enemy when battle starts.
 export const SHAMAN2 = `Hex an enemy when battle starts.`;
 // Demon x 5
-export const DEMON1 = `Single Demon deals 50% extra pure damage to its target`;
+export const DEMON1 = `Demon deals 50% extra pure damage to its target`;
 // Demon Hunter x 2
 export const DEMONHUNTER1 = `Negate enemy demon's Fel Power`;
 export const DEMONHUNTER2 = `All ally demons keep their power and ${DEMONHUNTER1}`;

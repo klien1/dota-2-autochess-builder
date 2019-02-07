@@ -8,6 +8,7 @@ import RaceHeroes from './HeroSelection/RaceHeroes';
 import CostHeroes from './HeroSelection/CostHeroes';
 import AlphaHeroes from './HeroSelection/AlphaHeroes';
 import Abilities from './HeroSelection/Abilities';
+import SearchBar from './HeroSelection/SearchBar';
 
 class TabBar extends Component {
 	state = {
@@ -36,6 +37,7 @@ class TabBar extends Component {
 						<Tab label='Abilities' />
 					</Tabs>
 				</Paper>
+				<SearchBar />
 				{value === 0 && <AlphaHeroes />}
 				{value === 1 && <ClassHeroes />}
 				{value === 2 && <RaceHeroes />}
