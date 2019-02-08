@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import heroAbilities from '../../data/abilityData';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import Typography from '@material-ui/core/Typography';
+import heroAbilities from '../../data/abilityData';
+import { DEMON } from '../../constants/heroRace';
+import { OGRE } from '../../constants/heroRace';
+import { DWARF } from '../../constants/heroRace';
 
 class CurrentAbilities extends Component {
 	generateAbility() {
@@ -13,9 +17,9 @@ class CurrentAbilities extends Component {
 		_.chain(countHeroes)
 			.pickBy(val => val > 0)
 			.map((value, key) => {
-				if (key === 'Dwarf' || key === 'Ogre') return null;
-				if (key === 'Demon' && countHeroes['Demon'] > 1) {
-					delete obj['Demon'];
+				if (key === DWARF || key === OGRE) return null;
+				if (key === DEMON && countHeroes[DEMON] > 1) {
+					delete obj[DEMON];
 					return null;
 				}
 
@@ -38,7 +42,13 @@ class CurrentAbilities extends Component {
 			<div>
 				{_.map(abilities, (value, key) => {
 					return (
-						<Typography variant='h6' key={key}>{`${key}: ${value}`}</Typography>
+						<Paper key={key}>
+							<div className={key.replace(' ', '')}>
+								<Typography align='center' variant='overline' key={key}>
+									<b>{`${key}: ${value}`}</b>
+								</Typography>
+							</div>
+						</Paper>
 					);
 				})}
 			</div>

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Typography } from '@material-ui/core';
-import HeroSelector from '../HigherOrderedComponents/HeroSelector';
+import { connect } from 'react-redux';
+import _ from 'lodash';
 
 import heroData from '../../data/heroData';
 import RenderHeroCards from '../HeroSelection/RenderHeroCards';
-import _ from 'lodash';
 
 class CurrentRoster extends Component {
 	filterSelectedHero() {
@@ -20,19 +19,20 @@ class CurrentRoster extends Component {
 
 	render() {
 		return (
-			<div>
-				<Typography variant='h4' align='center'>
-					Current Roster
-				</Typography>
-				<div style={{ marginTop: '1.5em' }}>
-					<RenderHeroCards
-						shouldHide={false}
-						heroData={this.filterSelectedHero()}
-					/>
-				</div>
+			<div style={{ marginTop: '1.5em' }}>
+				<RenderHeroCards
+					isRosterList={true}
+					heroData={this.filterSelectedHero()}
+				/>
 			</div>
 		);
 	}
 }
 
-export default HeroSelector(CurrentRoster);
+const mapStateToProps = ({ selectedHeroes }) => {
+	return {
+		selectedHeroes
+	};
+};
+
+export default connect(mapStateToProps)(CurrentRoster);

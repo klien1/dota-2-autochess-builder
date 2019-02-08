@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import _ from 'lodash';
 
-import heroData from '../../data/heroData';
 import RenderHeroCards from './RenderHeroCards';
+import HeroSelector from '../HigherOrderedComponents/HeroSelector';
 
-export default class RaceHeroes extends Component {
+class RaceHeroes extends Component {
 	filterHeroRace(heroRace) {
+		const { heroData } = this.props;
 		return _.pickBy(heroData, (value, key) => {
 			if (value.heroRace.includes(heroRace)) return key;
 		});
 	}
 
 	getDistictHeroRace() {
+		const { heroData } = this.props;
 		return _.chain(heroData)
 			.map('heroRace')
 			.flatten()
@@ -36,3 +38,5 @@ export default class RaceHeroes extends Component {
 		);
 	}
 }
+
+export default HeroSelector(RaceHeroes);

@@ -1,4 +1,8 @@
-import { SELECT_HERO, DESELECT_HERO } from '../../constants/actionTypes';
+import {
+	SELECT_HERO,
+	DESELECT_HERO,
+	RESET_SELECTED_HERO
+} from '../../constants/actionTypes';
 import heroData from '../../data/heroData';
 
 const getClassAndRace = heroName => {
@@ -23,5 +27,11 @@ export const deselectHero = heroName => {
 		type: DESELECT_HERO,
 		heroName,
 		classAndRace: getClassAndRace(heroName)
+	};
+};
+
+export const resetSelectedHeroes = () => {
+	return {
+		type: RESET_SELECTED_HERO
 	};
 };

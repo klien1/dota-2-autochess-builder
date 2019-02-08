@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import _ from 'lodash';
 
-import heroData from '../../data/heroData';
 import RenderHeroCards from './RenderHeroCards';
+import HeroSelector from '../HigherOrderedComponents/HeroSelector';
 
 class ClassHeroes extends Component {
 	filterHeroClass(heroClass) {
+		const { heroData } = this.props;
 		return _.pickBy(heroData, (value, key) => {
 			if (value.heroClass === heroClass) return key;
 		});
 	}
 
 	getDistictHeroClass() {
+		const { heroData } = this.props;
 		return _.chain(heroData)
 			.map('heroClass')
 			.uniq()
@@ -36,4 +38,4 @@ class ClassHeroes extends Component {
 	}
 }
 
-export default ClassHeroes;
+export default HeroSelector(ClassHeroes);

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import Typography from '@material-ui/core/Typography';
 import _ from 'lodash';
 
 import heroAbilities from '../../data/abilityData';
-import Typography from '@material-ui/core/Typography';
 
 export default class Abilities extends Component {
 	displayAbilities() {

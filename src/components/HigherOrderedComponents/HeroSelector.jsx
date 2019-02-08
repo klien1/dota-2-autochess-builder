@@ -1,28 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectHero } from '../../redux/actions';
-import heroData from '../../data/heroData';
 
 export default ChildComponent => {
 	class ComposedComponent extends Component {
 		render() {
-			return <ChildComponent {...this.props} heroData={heroData} />;
+			if (!!!this.props.heroData) return null;
+			return <ChildComponent {...this.props} />;
 		}
 	}
 
-	const mapStateToProps = state => {
-		return {
-			// images: state.images,
-			selectedHeroes: state.selectedHeroes
-		};
+	const mapStateToProps = ({ heroData }) => {
+		return { heroData };
 	};
 
-	const mapDispatchToProps = {
-		selectHero
-	};
-
-	return connect(
-		mapStateToProps,
-		mapDispatchToProps
-	)(ComposedComponent);
+	return connect(mapStateToProps)(ComposedComponent);
 };

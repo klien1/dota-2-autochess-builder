@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 import Typography from '@material-ui/core/Typography';
+import _ from 'lodash';
 
-import heroData from '../../data/heroData';
 import RenderHeroCards from './RenderHeroCards';
+import HeroSelector from '../HigherOrderedComponents/HeroSelector';
 
-export default class CostHeroes extends Component {
+class CostHeroes extends Component {
 	filterHeroCost(cost) {
+		const { heroData } = this.props;
 		return _.pickBy(heroData, (value, key) => {
 			if (value.cost === cost) return key;
 		});
 	}
 
 	getDistictHeroCost() {
+		const { heroData } = this.props;
 		return _.chain(heroData)
 			.map('cost')
 			.uniq()
@@ -36,3 +38,5 @@ export default class CostHeroes extends Component {
 		);
 	}
 }
+
+export default HeroSelector(CostHeroes);

@@ -1,7 +1,13 @@
-import { SELECT_HERO, DESELECT_HERO } from '../../constants/actionTypes';
+import {
+	SELECT_HERO,
+	DESELECT_HERO,
+	RESET_SELECTED_HERO
+} from '../../constants/actionTypes';
 import _ from 'lodash';
 
-export default (state = {}, action) => {
+const INITIAL_STATE = {};
+
+export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case SELECT_HERO:
 			const { heroName } = action;
@@ -11,6 +17,8 @@ export default (state = {}, action) => {
 			const temp = { ...state };
 			delete temp[action.heroName];
 			return temp;
+		case RESET_SELECTED_HERO:
+			return INITIAL_STATE;
 		default:
 			return state;
 	}

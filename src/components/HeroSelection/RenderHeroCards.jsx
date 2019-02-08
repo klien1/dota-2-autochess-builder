@@ -6,28 +6,24 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import images from '../../data/images';
-import '../../styles/text.css';
-import '../../styles/hero.css';
 import { selectHero, deselectHero } from '../../redux/actions';
 import rhombus from '../../static/background/rhombus.png';
 import numbers from '../../data/numbers';
 
 class RenderHeroCards extends Component {
 	static defaultProps = {
-		shouldHide: true
+		isRosterList: false
 	};
 
 	clickHero(heroName) {
 		const { selectedHeroes } = this.props;
 		if (selectedHeroes[heroName] !== undefined)
-			this.props.deselectHero(heroName)
-		else
-			this.props.selectHero(heroName)
-
+			this.props.deselectHero(heroName);
+		else this.props.selectHero(heroName);
 	}
 
 	createCards() {
-		const { heroData, selectedHeroes, shouldHide } = this.props;
+		const { heroData, selectedHeroes, isRosterList } = this.props;
 		if (!heroData || !selectedHeroes) return null;
 
 		const corner = {
@@ -43,7 +39,7 @@ class RenderHeroCards extends Component {
 			return (
 				<Card
 					style={
-						shouldHide && selectedHeroes[key] !== undefined
+						!isRosterList && selectedHeroes[key] !== undefined
 							? { opacity: 0.5 }
 							: {}
 					}
@@ -89,10 +85,13 @@ class RenderHeroCards extends Component {
 	}
 
 	render() {
-		return <div className='cardWrapperStyle'>{this.createCards()}</div>;
+		return (
+			<div>
+				<div className='cardWrapperStyle'>{this.createCards()}</div>
+			</div>
+		);
 	}
 }
-
 
 const mapStateToProps = state => {
 	return {

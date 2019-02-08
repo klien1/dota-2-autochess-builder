@@ -1,6 +1,10 @@
 import _ from 'lodash';
 
-import { SELECT_HERO, DESELECT_HERO } from '../../constants/actionTypes';
+import {
+	SELECT_HERO,
+	DESELECT_HERO,
+	RESET_SELECTED_HERO
+} from '../../constants/actionTypes';
 import * as heroClass from '../../constants/heroClass';
 import * as heroRace from '../../constants/heroRace';
 
@@ -35,6 +39,9 @@ export default (state = INITIAL_STATE, action) => {
 				--newState[item];
 			});
 			return newState;
+		}
+		case RESET_SELECTED_HERO: {
+			return INITIAL_STATE;
 		}
 		default:
 			return state;

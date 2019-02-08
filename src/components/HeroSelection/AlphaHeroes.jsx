@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-import heroData from '../../data/heroData';
 import RenderHeroCards from './RenderHeroCards';
+import HeroSelector from '../HigherOrderedComponents/HeroSelector';
 
 class AlphaHeroes extends Component {
 	render() {
+		const { heroData } = this.props;
 		return (
 			<div>
 				<RenderHeroCards heroData={heroData} />
@@ -13,4 +14,4 @@ class AlphaHeroes extends Component {
 	}
 }
 
-export default AlphaHeroes;
+export default HeroSelector(AlphaHeroes);

@@ -1,0 +1,17 @@
+.rosterFlexContainer {
+	/* background-color: lightblue; */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0;
+	width: 100%;
+}
+
+.rosterFlexTitle {
+	flex-grow: 2;
+}
+
+.reset {
+	margin-left: 20px;
+	justify-content: flex-end;
+}
