@@ -1,62 +1,87 @@
 import React, { Component } from 'react';
-import Grid from '@material-ui/core/Grid';
+import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import _ from 'lodash';
 
-import test from '../../static/miniHeroIcons/Axe.png';
-import classIcon from '../../static/classAndRace/Warrior.png';
+import classIcon from '../../data/classIcons';
+import classData from '../../data/heroIcons';
+import { selectHero, deselectHero } from '../../redux/actions';
 
-const temp = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+class RenderHeroList extends Component {
+	static defaultProps = {
+		isRosterList: false
+	};
 
-export default class RenderHeroList extends Component {
-	renderList() {
-		return (
-			// <Grid container spacing={16}>
-			<Grid item xs={12} md={10}>
-				<Typography variant='h6'>Warriors</Typography>
-				<List dense>{temp.map(() => this.renderListItem())}</List>
-			</Grid>
-			// </Grid>
-		);
+	clickHero(heroName) {
+		const { selectedHeroes } = this.props;
+		if (selectedHeroes[heroName] !== undefined)
+			this.props.deselectHero(heroName);
+		else this.props.selectHero(heroName);
 	}
 
-	renderListItem() {
+	renderIcon(src, title, style = {}) {
+		return <Avatar alt={title} src={src} title={title} style={style} />;
+	}
+
+	renderListItem(value) {
+		const { cost, heroClass, heroRace, name } = value;
+		const inlineStyle = { marginRight: '2px' };
+		if (!value || !this.props.selectedHeroes) return null;
+
 		return (
-			<Paper>
-				<ListItem>
-					<ListItemAvatar>
-						<Avatar alt='axe' src={test} />
-					</ListItemAvatar>
-					<ListItemText primary='Some random text' secondary='subtext' />
-					<ListItemIcon>
-						<Avatar alt='war' src={classIcon} />
-						&nbsp;
-						<Avatar alt='war' src={classIcon} />
-						&nbsp;
-						<Avatar alt='war' src={classIcon} />
-						&nbsp;
-					</ListItemIcon>
-				</ListItem>
-			</Paper>
+			<div key={name} onMouseDown={() => this.clickHero(name)}>
+				<Paper
+					style={
+						!this.props.isRosterList &&
+						this.props.selectedHeroes[name] !== undefined
+							? { opacity: 0.5 }
+							: {}
+					}>
+					<ListItem>
+						{this.renderIcon(classData[name], name)}
+						<ListItemText primary={name} secondary={`Cost: ${cost}`} />
+						{this.renderIcon(classIcon[heroRace[0]], heroRace[0], inlineStyle)}
+						{heroRace.length > 1
+							? this.renderIcon(
+									classIcon[heroRace[1]],
+									heroRace[1],
+									inlineStyle
+							  )
+							: null}
+						{this.renderIcon(classIcon[heroClass], heroClass)}
+					</ListItem>
+				</Paper>
+			</div>
 		);
 	}
 
 	render() {
-		const flexItem = {
-			flex: 1
-		};
+		const { heroData } = this.props;
 		return (
-			<Grid container spacing={24}>
-				<div style={flexItem}>{this.renderList()}</div>
-				<div style={flexItem}>{this.renderList()}</div>
-				<div style={flexItem}>{this.renderList()}</div>
-			</Grid>
+			<List dense>
+				{_.map(heroData, value => {
+					return this.renderListItem(value);
+				})}
+			</List>
 		);
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		selectedHeroes: state.selectedHeroes
+	};
+};
+
+const mapDispatchToProps = {
+	selectHero,
+	deselectHero
+};
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(RenderHeroList);

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
-import Refresh from '@material-ui/icons/Refresh';
-import Fab from '@material-ui/core/Fab';
 import { connect } from 'react-redux';
 
 import CurrentUnitCount from './CurrentUnitCount';
@@ -22,18 +20,6 @@ class RosterWrapper extends Component {
 						<b>Current Roster</b>
 					</Typography>
 				</div>
-				<div className='reset'>
-					<Fab
-						color='primary'
-						variant='extended'
-						size='small'
-						onClick={() => this.props.resetSelectedHeroes()}>
-						<Typography variant='button' style={{ color: 'white' }}>
-							Reset Roster
-						</Typography>
-						<Refresh />
-					</Fab>
-				</div>
 			</div>
 		);
 	}
@@ -41,10 +27,10 @@ class RosterWrapper extends Component {
 	render() {
 		return (
 			<div>
-				{this.displayTitle()}
+				{/* {this.displayTitle()} */}
+				<CurrentAbilities />
 				<CurrentUnitCount />
 				<CurrentRoster />
-				<CurrentAbilities />
 			</div>
 		);
 	}

@@ -9,7 +9,7 @@ html {
 body {
 	margin: 0;
 	background-color: lightblue;
-	/* background-image: url('../static/background/DonkeyCourier.jpg'); */
+	background-image: url('../static/background/DonkeyCourier.jpg');
 	background-attachment: fixed;
 	height: 100%;
 	background-position: center;

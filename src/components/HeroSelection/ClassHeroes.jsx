@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import _ from 'lodash';
 
-import RenderHeroCards from './RenderHeroCards';
 import HeroSelector from '../HigherOrderedComponents/HeroSelector';
+import RenderHeroList from './RenderHeroList';
+import { M_HERO_GRID_SIZE } from '../../constants/grid.jsx';
 
 class ClassHeroes extends Component {
 	filterHeroClass(heroClass) {
@@ -17,23 +19,30 @@ class ClassHeroes extends Component {
 		const { heroData } = this.props;
 		return _.chain(heroData)
 			.map('heroClass')
-			.uniq()
+			.groupBy()
+			.sortBy(value => -value.length)
+			.flatten()
+			.sortedUniq()
 			.value();
 	}
 
 	render() {
 		const uniqHeroClass = this.getDistictHeroClass();
 		return (
-			<div>
-				{_.map(uniqHeroClass, value => {
+			<Grid container spacing={16}>
+				{_.map(uniqHeroClass, (value, key) => {
 					return (
-						<div key={value}>
-							<Typography variant='title'>{value}</Typography>
-							<RenderHeroCards heroData={this.filterHeroClass(value)} />
-						</div>
+						<Grid key={key} item xs={6} md={M_HERO_GRID_SIZE}>
+							<Typography
+								style={{ color: 'white', textShadow: '2px 2px black' }}
+								variant='title'>
+								{value}
+							</Typography>
+							<RenderHeroList heroData={this.filterHeroClass(value)} />
+						</Grid>
 					);
 				})}
-			</div>
+			</Grid>
 		);
 	}
 }

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import _ from 'lodash';
 
-import RenderHeroCards from './RenderHeroCards';
+import RenderHeroList from './RenderHeroList';
 import HeroSelector from '../HigherOrderedComponents/HeroSelector';
+import { M_HERO_GRID_SIZE } from '../../constants/grid.jsx';
 
 class CostHeroes extends Component {
 	filterHeroCost(cost) {
@@ -25,16 +27,20 @@ class CostHeroes extends Component {
 	render() {
 		const distinctCost = this.getDistictHeroCost();
 		return (
-			<div>
+			<Grid container spacing={16}>
 				{_.map(distinctCost, value => {
 					return (
-						<div key={value} style={{ marginTop: '1em' }}>
-							<Typography variant='title'>{value}</Typography>
-							<RenderHeroCards heroData={this.filterHeroCost(value)} />
-						</div>
+						<Grid key={value} item xs={6} md={M_HERO_GRID_SIZE}>
+							<Typography
+								style={{ color: 'white', textShadow: '2px 2px black' }}
+								variant='title'>
+								{value}
+							</Typography>
+							<RenderHeroList heroData={this.filterHeroCost(value)} />
+						</Grid>
 					);
 				})}
-			</div>
+			</Grid>
 		);
 	}
 }

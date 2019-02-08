@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Fab from '@material-ui/core/Fab';
+import Typography from '@material-ui/core/Typography';
+import Refresh from '@material-ui/icons/Refresh';
 
 import ClassHeroes from './ClassHeroes';
 import RaceHeroes from './RaceHeroes';
@@ -26,11 +30,28 @@ class TabBar extends Component {
 		this.setState({ value });
 	};
 
+	renderResetRoster() {
+		return (
+			<div className='reset'>
+				<Fab
+					color='primary'
+					variant='extended'
+					size='small'
+					onClick={() => this.props.resetSelectedHeroes()}>
+					<Typography variant='button' style={{ color: 'white' }}>
+						Reset Roster
+					</Typography>
+					<Refresh />
+				</Fab>
+			</div>
+		);
+	}
+
 	renderTabBar() {
 		const { value } = this.state;
 		return (
 			<div>
-				<Paper style={{ marginBottom: '1em' }}>
+				<Paper>
 					<div
 						style={{
 							alignItems: 'center'
@@ -48,9 +69,20 @@ class TabBar extends Component {
 							<Tab label='Cost' />
 							<Tab label='Abilities' />
 						</Tabs>
-						<SearchBar />
 					</div>
 				</Paper>
+				<Grid
+					justify='space-evenly'
+					container
+					spacing={16}
+					style={{ margin: '5px' }}>
+					<Grid item sm={12} md={6}>
+						<Paper>
+							<SearchBar />
+						</Paper>
+					</Grid>
+					<Grid item>{this.renderResetRoster()}</Grid>
+				</Grid>
 				{value === 0 && <AlphaHeroes />}
 				{value === 1 && <ClassHeroes />}
 				{value === 2 && <RaceHeroes />}

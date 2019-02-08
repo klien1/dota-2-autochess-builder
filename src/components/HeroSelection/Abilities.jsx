@@ -1,49 +1,67 @@
 import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Avatar from '@material-ui/core/Avatar';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Collapse from '@material-ui/core/Collapse';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+
 import _ from 'lodash';
 
 import heroAbilities from '../../data/abilityData';
+import classIcons from '../../data/classIcons';
 
 export default class Abilities extends Component {
-	displayAbilities() {
-		const textStyle = {
-			color: 'white',
-			textShadow: `2px 2px black`
-		};
+	state = {};
+
+	handleClick = curTarget => {
+		this.setState({
+			[curTarget]:
+				this.state[curTarget] !== undefined ? !this.state[curTarget] : true
+		});
+	};
+
+	displayAbilityList() {
+		if (!heroAbilities || !classIcons) return null;
 		return _.map(heroAbilities, (value, key) => {
 			return (
-				<div key={key} style={{ paddingLeft: '1em' }}>
-					<Typography style={textStyle} variant='title'>
-						{key}
-					</Typography>
-					<div>
-						{_.map(value, (v, k) => {
-							return (
-								<div key={k} style={{ paddingLeft: '1em' }}>
-									<Typography
-										style={textStyle}
-										variant='title'
-										component='p'
-										key={k}>{`(${Object.keys(v)[0]}): ${
-										Object.values(v)[0]
-									}`}</Typography>
-								</div>
-							);
-						})}
-					</div>
-				</div>
+				<Grid key={key} item md={4} onClick={() => this.handleClick(key)}>
+					<Paper key={key}>
+						<ListItem onClick={() => this.handleClick(key)}>
+							<Avatar alt={key} src={classIcons[key]} />
+							<ListItemText primary={key} />
+							{this.state[key] ? <ExpandLess /> : <ExpandMore />}
+						</ListItem>
+						<Collapse in={this.state[key]} timeout='auto' unmountOnExit>
+							{_.map(value, (v, k) => {
+								return (
+									<List key={k} component='div' disablePadding>
+										<ListItem button>
+											<ListItemText
+												inset
+												primary={`(${Object.keys(v)[0]}): ${
+													Object.values(v)[0]
+												}`}
+											/>
+										</ListItem>
+									</List>
+								);
+							})}
+						</Collapse>
+					</Paper>
+				</Grid>
 			);
 		});
 	}
 
 	render() {
-		const display = this.displayAbilities();
 		return (
-			<div>
-				{_.map(display, value => {
-					return value;
-				})}
-			</div>
+			<Grid container alignContent='space-between' direction='row' spacing={40}>
+				{this.displayAbilityList()}
+			</Grid>
 		);
 	}
 }

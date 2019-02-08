@@ -25,7 +25,6 @@ class CurrentUnitCount extends Component {
 								title={key}
 							/>
 							<img src={rhombus} alt='rhombus' className='corner' />
-							{console.log('key val', key, value)}
 							<img
 								src={numbers[`numeric-${value}-black`]}
 								alt={value}

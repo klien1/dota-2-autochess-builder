@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import heroData from '../../data/heroData';
-import RenderHeroCards from '../HeroSelection/RenderHeroCards';
+// import RenderHeroCards from '../HeroSelection/RenderHeroCards';
+import RenderHeroList from '../HeroSelection/RenderHeroList';
 
 class CurrentRoster extends Component {
 	filterSelectedHero() {
@@ -20,10 +21,8 @@ class CurrentRoster extends Component {
 	render() {
 		return (
 			<div style={{ marginTop: '1.5em' }}>
-				<RenderHeroCards
-					isRosterList={true}
-					heroData={this.filterSelectedHero()}
-				/>
+				{/* <RenderHeroCards */}
+				<RenderHeroList isRosterList heroData={this.filterSelectedHero()} />
 			</div>
 		);
 	}
