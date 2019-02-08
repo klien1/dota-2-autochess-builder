@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import CancelIcon from '@material-ui/icons/Cancel';
+import RefreshIcon from '@material-ui/icons/Refresh';
 import Button from '@material-ui/core/Button';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
@@ -43,13 +43,13 @@ class SearchBar extends Component {
 					<SearchIcon />
 				</div>
 				<InputBase
-					placeholder='Search…'
+					placeholder='Search by hero name or class or race. e.g. razor'
 					onChange={this.onSearchChange}
 					style={{ width: '100%' }}
 					value={this.state.searchValue}
 				/>
 				<Button onClick={this.resetSearch}>
-					<CancelIcon />
+					<RefreshIcon />
 				</Button>
 			</div>
 		);

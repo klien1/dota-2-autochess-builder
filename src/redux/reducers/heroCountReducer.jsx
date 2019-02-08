@@ -33,14 +33,18 @@ export default (state = INITIAL_STATE, action) => {
 			return state;
 		}
 		case DESELECT_HERO: {
-			--count;
-			const newState = { ...state };
-			action.classAndRace.forEach(item => {
-				--newState[item];
-			});
-			return newState;
+			if (count > 0) {
+				--count;
+				const newState = { ...state };
+				action.classAndRace.forEach(item => {
+					--newState[item];
+				});
+				return newState;
+			}
+			return state;
 		}
 		case RESET_SELECTED_HERO: {
+			count = 0;
 			return INITIAL_STATE;
 		}
 		default:

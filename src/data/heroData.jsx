@@ -4,14 +4,14 @@ import * as hClass from '../constants/heroClass';
 export default {
 	Abaddon: { heroClass: hClass.KNIGHT, heroRace: [species.UNDEAD], cost: 3 },
 	Alchemist: { heroClass: hClass.WARLOCK, heroRace: [species.GOBLIN], cost: 4 },
-	'Anti Mage': {
+	'Anti-Mage': {
 		heroClass: hClass.DEMON_HUNTER,
 		heroRace: [species.ELF],
 		cost: 1
 	},
 	Axe: { heroClass: hClass.WARRIOR, heroRace: [species.ORC], cost: 1 },
-	'Bat Rider': { heroClass: hClass.KNIGHT, heroRace: [species.TROLL], cost: 1 },
-	'Beast Master': {
+	Batrider: { heroClass: hClass.KNIGHT, heroRace: [species.TROLL], cost: 1 },
+	Beastmaster: {
 		heroClass: hClass.HUNTER,
 		heroRace: [species.ORC],
 		cost: 2
@@ -70,9 +70,9 @@ export default {
 		heroRace: [species.ELEMENT],
 		cost: 2
 	},
-	Necrophos: { heroClass: hClass.WARLOCK, heroRace: [species.UNDEAD], cost: 4 },
+	Necrolyte: { heroClass: hClass.WARLOCK, heroRace: [species.UNDEAD], cost: 4 },
 	'Ogre Magi': { heroClass: hClass.MAGE, heroRace: [species.OGRE], cost: 1 },
-	'Omni Knight': {
+	Omniknight: {
 		heroClass: hClass.KNIGHT,
 		heroRace: [species.HUMAN],
 		cost: 3

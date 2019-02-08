@@ -6,17 +6,27 @@ import heroAbilities from '../../data/abilityData';
 
 export default class Abilities extends Component {
 	displayAbilities() {
+		const textStyle = {
+			color: 'white',
+			textShadow: `2px 2px black`
+		};
 		return _.map(heroAbilities, (value, key) => {
 			return (
 				<div key={key} style={{ paddingLeft: '1em' }}>
-					<Typography variant='title'>{key}</Typography>
+					<Typography style={textStyle} variant='title'>
+						{key}
+					</Typography>
 					<div>
 						{_.map(value, (v, k) => {
 							return (
 								<div key={k} style={{ paddingLeft: '1em' }}>
-									<Typography variant='subheading' component='p' key={k}>{`(${
-										Object.keys(v)[0]
-									}): ${Object.values(v)[0]}`}</Typography>
+									<Typography
+										style={textStyle}
+										variant='title'
+										component='p'
+										key={k}>{`(${Object.keys(v)[0]}): ${
+										Object.values(v)[0]
+									}`}</Typography>
 								</div>
 							);
 						})}

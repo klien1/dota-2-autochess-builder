@@ -1,8 +1,8 @@
 {
-	"homepage": "http://klien1.github.io/dota-2-autochess-builder",
 	"name": "dota2-autochess",
 	"version": "0.1.0",
 	"private": true,
+	"homepage": "https://klien1.github.io/dota-2-autochess-builder",
 	"dependencies": {
 		"@material-ui/core": "^3.9.2",
 		"@material-ui/icons": "^3.0.2",
@@ -25,6 +25,9 @@
 	},
 	"eslintConfig": {
 		"extends": "react-app"
+	},
+	"resolutions": {
+		"terser": "3.14.1"
 	},
 	"browserslist": [
 		">0.2%",

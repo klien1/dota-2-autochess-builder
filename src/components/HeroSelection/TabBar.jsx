@@ -33,12 +33,10 @@ class TabBar extends Component {
 				<Paper style={{ marginBottom: '1em' }}>
 					<div
 						style={{
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'space-around'
+							alignItems: 'center'
 						}}>
-						<SearchBar />
 						<Tabs
+							variant='fullWidth'
 							value={value}
 							onChange={this.handleChange}
 							indicatorColor='primary'
@@ -50,6 +48,7 @@ class TabBar extends Component {
 							<Tab label='Cost' />
 							<Tab label='Abilities' />
 						</Tabs>
+						<SearchBar />
 					</div>
 				</Paper>
 				{value === 0 && <AlphaHeroes />}

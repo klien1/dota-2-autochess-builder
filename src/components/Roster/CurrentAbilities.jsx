@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
@@ -42,13 +41,13 @@ class CurrentAbilities extends Component {
 			<div>
 				{_.map(abilities, (value, key) => {
 					return (
-						<Paper key={key}>
-							<div className={key.replace(' ', '')}>
+						<div className='black-border' key={key}>
+							<div className={`${key.replace(' ', '')}`}>
 								<Typography align='center' variant='overline' key={key}>
 									<b>{`${key}: ${value}`}</b>
 								</Typography>
 							</div>
-						</Paper>
+						</div>
 					);
 				})}
 			</div>

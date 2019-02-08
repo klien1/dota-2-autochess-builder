@@ -9,11 +9,10 @@
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: flex-start;
-	/* flex-direction: column; */
 }
 
 .cardStyle {
-	max-width: 50px;
+	max-width: 80px;
 	margin: 4px;
 	margin-top: 0px;
 	padding: 0px;
@@ -25,4 +24,23 @@
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
+}
+
+.corner {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding: 0;
+	max-width: 50%;
+	max-height: 50%;
+}
+
+.iconStyle {
+	width: 10px;
+	height: 100%;
+	flex: 1;
+}
+
+.iconContainer {
+	display: flex;
 }

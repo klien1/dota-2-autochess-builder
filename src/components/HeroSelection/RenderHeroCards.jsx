@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import images from '../../data/images';
+// import images from '../../data/heroIcons';
+import classIcons from '../../data/classIcons';
 import { selectHero, deselectHero } from '../../redux/actions';
 import rhombus from '../../static/background/rhombus.png';
 import numbers from '../../data/numbers';
@@ -22,18 +24,45 @@ class RenderHeroCards extends Component {
 		else this.props.selectHero(heroName);
 	}
 
+	displayIcons(classOrRace) {
+		return (
+			<img
+				className='iconStyle'
+				key={classOrRace}
+				src={classIcons[classOrRace]}
+				alt={classOrRace}
+				title={classOrRace}
+			/>
+		);
+	}
+
+	// currently not being used
+	displayText(classOrRace) {
+		return (
+			<div
+				key={classOrRace}
+				className={`${classOrRace.replace(' ', '')} overflowStyle`}>
+				<b>{classOrRace}</b>&nbsp;
+			</div>
+		);
+	}
+
+	displayCost(cost) {
+		return (
+			<div>
+				<img src={rhombus} alt='rhombus' className='corner' />
+				<img
+					src={numbers[`numeric-${cost}-black`]}
+					alt={cost}
+					className='corner'
+				/>
+			</div>
+		);
+	}
+
 	createCards() {
 		const { heroData, selectedHeroes, isRosterList } = this.props;
 		if (!heroData || !selectedHeroes) return null;
-
-		const corner = {
-			position: 'absolute',
-			top: '0px',
-			left: '0px',
-			padding: '0',
-			maxWidth: '50%',
-			maxHeight: '50%'
-		};
 
 		return _.map(heroData, (value, key) => {
 			return (
@@ -50,33 +79,31 @@ class RenderHeroCards extends Component {
 						<div style={{ position: 'relative' }}>
 							<CardMedia
 								draggable='false'
-								height='40'
+								height='60'
 								component='img'
 								alt={key}
 								image={images[key]}
 								title={key}
 							/>
-							<img src={rhombus} alt='rhombus' style={corner} />
-							<img
-								src={numbers[`numeric-${value.cost}-black`]}
-								alt={value.cost}
-								style={corner}
-							/>
+							{this.displayCost(value.cost)}
 						</div>
-						<div className='textStyle'>
-							{value.heroRace.map(item => {
-								return (
-									<div key={item} className={`${item} overflowStyle`}>
-										<b>{item}</b>&nbsp;
-									</div>
-								);
+						{/* <div className='textStyle'> */}
+						<div className='iconContainer'>
+							{value.heroRace.map(race => {
+								return this.displayIcons(race);
+								// return (
+								// 	<div key={race} className={`${race} overflowStyle`}>
+								// 		<b>{race}</b>&nbsp;
+								// 	</div>
+								// );
 							})}
-						</div>
-						<div className='textStyle' style={{ paddingTop: 0 }}>
-							<div
+							{/* </div> */}
+							{/* <div className='textStyle' style={{ paddingTop: 0 }}> */}
+							{this.displayIcons(value.heroClass)}
+							{/* <div
 								className={`${value.heroClass.replace(' ', '')} overflowStyle`}>
 								<b>{value.heroClass}</b>
-							</div>
+							</div> */}
 						</div>
 					</CardActionArea>
 				</Card>
@@ -85,11 +112,7 @@ class RenderHeroCards extends Component {
 	}
 
 	render() {
-		return (
-			<div>
-				<div className='cardWrapperStyle'>{this.createCards()}</div>
-			</div>
-		);
+		return <div className='cardWrapperStyle'>{this.createCards()}</div>;
 	}
 }
 

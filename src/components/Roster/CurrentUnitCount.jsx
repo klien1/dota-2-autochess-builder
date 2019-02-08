@@ -1,19 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import CardMedia from '@material-ui/core/CardMedia';
+
+import classIcons from '../../data/classIcons';
+import rhombus from '../../static/background/diamond.png';
+import numbers from '../../data/numbers';
 
 class CurrentUnitCount extends Component {
 	render() {
 		const { countHeroes } = this.props;
 		return (
-			<div>
+			<div className='unitCountBoxContainer'>
 				{_.map(countHeroes, (value, key) => {
 					if (value === 0) return null;
 					return (
-						<div key={key} style={{ backgroundColor: 'white', margin: 0 }}>
-							<div
-								className={`${key.replace(' ', '')}`}
-								key={key}>{`${key}: ${value}`}</div>
+						<div key={key} className='unitBox'>
+							<CardMedia
+								draggable='false'
+								height='50'
+								component='img'
+								alt={key}
+								image={classIcons[key]}
+								title={key}
+							/>
+							<img src={rhombus} alt='rhombus' className='corner' />
+							{console.log('key val', key, value)}
+							<img
+								src={numbers[`numeric-${value}-black`]}
+								alt={value}
+								className='corner'
+							/>
 						</div>
 					);
 				})}

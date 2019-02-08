@@ -89,3 +89,8 @@
 .Warlock {
 	background-color: mediumpurple;
 }
+
+.black-border {
+	border: 2px solid black;
+	margin-bottom: 5px;
+}

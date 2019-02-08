@@ -14,10 +14,10 @@ const App = () => {
 				<div style={{ margin: '0em 3em' }}>
 					<MainTitle />
 					<Grid container spacing={24}>
-						<Grid item md={8}>
+						<Grid item md={9}>
 							<TabBar />
 						</Grid>
-						<Grid item md={4}>
+						<Grid item md={3}>
 							<RosterWrapper />
 						</Grid>
 					</Grid>
