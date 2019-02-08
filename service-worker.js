@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/dota-2-autochess-builder/precache-manifest.e020e2d31c062d3347ca2a3b29f4b4c1.js"
+  "/dota-2-autochess-builder/precache-manifest.b73c8e098f491218b9ddb53c766726fa.js"
 );
 
 workbox.clientsClaim();
