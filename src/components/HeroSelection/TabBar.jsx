@@ -14,7 +14,7 @@ import CostHeroes from './CostHeroes';
 import AlphaHeroes from './AlphaHeroes';
 import Abilities from './Abilities';
 
-import { fetchData } from '../../redux/actions';
+import { fetchData, resetSelectedHeroes } from '../../redux/actions';
 import SearchBar from './SearchBar';
 
 class TabBar extends Component {
@@ -99,5 +99,5 @@ class TabBar extends Component {
 
 export default connect(
 	null,
-	{ fetchData }
+	{ fetchData, resetSelectedHeroes }
 )(TabBar);
