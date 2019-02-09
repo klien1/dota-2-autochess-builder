@@ -26,7 +26,13 @@ export default class Abilities extends Component {
 
 	displayAbilityList() {
 		if (!heroAbilities || !classIcons) return null;
-		return _.map(heroAbilities, (value, key) => {
+
+		const sortedClassArray = _(heroAbilities)
+			.keys()
+			.sortBy()
+			.value();
+
+		return _.map(sortedClassArray, key => {
 			return (
 				<Grid key={key} item md={4} onClick={() => this.handleClick(key)}>
 					<Paper key={key}>
@@ -36,7 +42,7 @@ export default class Abilities extends Component {
 							{this.state[key] ? <ExpandLess /> : <ExpandMore />}
 						</ListItem>
 						<Collapse in={this.state[key]} timeout='auto' unmountOnExit>
-							{_.map(value, (v, k) => {
+							{_.map(heroAbilities[key], (v, k) => {
 								return (
 									<List key={k} component='div' disablePadding>
 										<ListItem button>
@@ -59,7 +65,12 @@ export default class Abilities extends Component {
 
 	render() {
 		return (
-			<Grid container alignContent='space-between' direction='row' spacing={40}>
+			<Grid
+				container
+				alignContent='space-between'
+				direction='row'
+				spacing={40}
+				style={{ marginTop: '1em' }}>
 				{this.displayAbilityList()}
 			</Grid>
 		);

@@ -4,12 +4,14 @@ import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
 import _ from 'lodash';
 
+import { selectHero, deselectHero } from '../../redux/actions';
 import classIcon from '../../data/classIcons';
 import classData from '../../data/heroIcons';
-import { selectHero, deselectHero } from '../../redux/actions';
+import renderAbilityIcon from './renderAbilityIcon';
+import { PAPER_COLOR } from '../../constants/color';
 
 class RenderHeroList extends Component {
 	static defaultProps = {
@@ -23,10 +25,6 @@ class RenderHeroList extends Component {
 		else this.props.selectHero(heroName);
 	}
 
-	renderIcon(src, title, style = {}) {
-		return <Avatar alt={title} src={src} title={title} style={style} />;
-	}
-
 	renderListItem(value) {
 		const { cost, heroClass, heroRace, name } = value;
 		const inlineStyle = { marginRight: '2px' };
@@ -38,22 +36,28 @@ class RenderHeroList extends Component {
 					style={
 						!this.props.isRosterList &&
 						this.props.selectedHeroes[name] !== undefined
-							? { opacity: 0.5 }
-							: {}
+							? { opacity: 0.5, backgroundColor: PAPER_COLOR }
+							: { backgroundColor: PAPER_COLOR }
 					}>
-					<ListItem>
-						{this.renderIcon(classData[name], name)}
-						<ListItemText primary={name} secondary={`Cost: ${cost}`} />
-						{this.renderIcon(classIcon[heroRace[0]], heroRace[0], inlineStyle)}
-						{heroRace.length > 1
-							? this.renderIcon(
-									classIcon[heroRace[1]],
-									heroRace[1],
-									inlineStyle
-							  )
-							: null}
-						{this.renderIcon(classIcon[heroClass], heroClass)}
-					</ListItem>
+					<Button style={{ width: '100%' }}>
+						<ListItem>
+							<img alt={name} src={classData[name]} title={name} />
+							<ListItemText primary={name} secondary={`Cost: ${cost}`} />
+							{renderAbilityIcon(
+								classIcon[heroRace[0]],
+								heroRace[0],
+								inlineStyle
+							)}
+							{heroRace.length > 1
+								? renderAbilityIcon(
+										classIcon[heroRace[1]],
+										heroRace[1],
+										inlineStyle
+								  )
+								: null}
+							{renderAbilityIcon(classIcon[heroClass], heroClass)}
+						</ListItem>
+					</Button>
 				</Paper>
 			</div>
 		);

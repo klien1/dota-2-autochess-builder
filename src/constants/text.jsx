@@ -1,0 +1,10 @@
+export const CLEAR_SEARCH = 'Clear Search';
+export const SUBMIT = 'Submit';
+export const CLEAR_ROSTER = 'Clear Roster';
+export const ACTIVE_ABILITIES = 'Active Abilities';
+export const HERO_COUNT = 'Hero Count';
+export const TITLE = 'Dota 2 Autochess Builder';
+export const HEROES = 'Heroes';
+export const CLASS = 'Class';
+export const RACE = 'Race';
+export const COST = 'Cost';

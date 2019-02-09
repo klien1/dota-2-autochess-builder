@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 import RenderHeroList from './RenderHeroList';
 import HeroSelector from '../HigherOrderedComponents/HeroSelector';
-import { M_HERO_GRID_SIZE } from '../../constants/grid.jsx';
+import { L_HERO_GRID_SIZE, XL_HERO_GRID_SIZE } from '../../constants/grid.jsx';
 
 class CostHeroes extends Component {
 	filterHeroCost(cost) {
@@ -30,7 +30,7 @@ class CostHeroes extends Component {
 			<Grid container spacing={16}>
 				{_.map(distinctCost, value => {
 					return (
-						<Grid key={value} item xs={6} md={M_HERO_GRID_SIZE}>
+						<Grid key={value} item lg={L_HERO_GRID_SIZE} xl={XL_HERO_GRID_SIZE}>
 							<Typography
 								style={{ color: 'white', textShadow: '2px 2px black' }}
 								variant='title'>
