@@ -90,16 +90,10 @@
 	background-color: mediumpurple;
 }
 
-.black-border {
-	border: 2px solid black;
-	margin-bottom: 5px;
-}
-
-.shadowTesting {
-	background-color: #666666;
-	-webkit-background-clip: text;
-	-moz-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	text-shadow: rgba(255, 255, 255, 0.5) 0px 3px 3px;
+.title {
+	color: #ff4411;
+	font-size: 48px;
+	/* font-family: 'Signika', sans-serif; */
+	font-family: 'Trocchi', sans-serif;
+	text-shadow: 2px 2px black;
 }

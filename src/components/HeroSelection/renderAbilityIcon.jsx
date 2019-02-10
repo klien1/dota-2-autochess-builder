@@ -7,16 +7,17 @@ import _ from 'lodash';
 
 import abilityData from '../../data/abilityData';
 
-export default (src, iconName, myStyle = {}) => {
+export default ({ src, iconName, myStyle = {} }) => {
 	if (!abilityData[iconName]) return null;
 	const description = (
 		<Grid>
-			<Typography variant='subheading' style={{ color: 'white' }}>
+			<Typography variant='subtitle1' style={{ color: 'white' }}>
 				<b>{iconName}</b>
 			</Typography>
 			{_.map(abilityData[iconName], value => {
 				const curKey = Object.keys(value)[0];
 				const curAbility = value[curKey];
+				if (!curKey || !curAbility) return null;
 				return (
 					<p
 						style={{ fontSize: '12px' }}

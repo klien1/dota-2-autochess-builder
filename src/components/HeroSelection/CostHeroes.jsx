@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import _ from 'lodash';
 
 import RenderHeroList from './RenderHeroList';
 import HeroSelector from '../HigherOrderedComponents/HeroSelector';
-import { L_HERO_GRID_SIZE, XL_HERO_GRID_SIZE } from '../../constants/grid.jsx';
+import RenderTitleCollapseList from './renderTitleCollapseList';
+import ToggleAllCollapse from './toggleAllCollapse';
+import {
+	M_HERO_GRID_SIZE,
+	L_HERO_GRID_SIZE,
+	XL_HERO_GRID_SIZE
+} from '../../constants/grid.jsx';
 
 class CostHeroes extends Component {
 	filterHeroCost(cost) {
@@ -28,15 +34,19 @@ class CostHeroes extends Component {
 		const distinctCost = this.getDistictHeroCost();
 		return (
 			<Grid container spacing={16}>
+				<ToggleAllCollapse value={distinctCost} />
 				{_.map(distinctCost, value => {
 					return (
-						<Grid key={value} item lg={L_HERO_GRID_SIZE} xl={XL_HERO_GRID_SIZE}>
-							<Typography
-								style={{ color: 'white', textShadow: '2px 2px black' }}
-								variant='title'>
-								{value}
-							</Typography>
-							<RenderHeroList heroData={this.filterHeroCost(value)} />
+						<Grid
+							key={value}
+							item
+							sm={12}
+							md={M_HERO_GRID_SIZE}
+							lg={L_HERO_GRID_SIZE}
+							xl={XL_HERO_GRID_SIZE}>
+							<RenderTitleCollapseList faction={value}>
+								<RenderHeroList heroData={this.filterHeroCost(value)} />
+							</RenderTitleCollapseList>
 						</Grid>
 					);
 				})}

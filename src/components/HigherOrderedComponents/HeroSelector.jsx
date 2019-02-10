@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import { openList, closeList } from '../../redux/actions';
 
 export default ChildComponent => {
 	class ComposedComponent extends Component {

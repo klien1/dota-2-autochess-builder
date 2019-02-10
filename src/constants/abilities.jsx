@@ -132,4 +132,6 @@ export const DEMON1 = `Demon deals 50% extra pure damage to its target`;
 export const DEMONHUNTER1 = `Negate enemy demon's Fel Power`;
 export const DEMONHUNTER2 = `All ally demons keep their power and ${DEMONHUNTER1}`;
 // Dwarf x 2
+export const DWARF = ``;
 // Ogre x 1
+export const OGRE = ``;

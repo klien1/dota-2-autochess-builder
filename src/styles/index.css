@@ -8,7 +8,7 @@ html {
 
 body {
 	margin: 0;
-	background-color: lightblue;
+	background-color: grey;
 	background-image: url('../static/background/DonkeyCourier.jpg');
 	background-attachment: fixed;
 	height: 100%;

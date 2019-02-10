@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -10,7 +11,7 @@ import _ from 'lodash';
 import { selectHero, deselectHero } from '../../redux/actions';
 import classIcon from '../../data/classIcons';
 import classData from '../../data/heroIcons';
-import renderAbilityIcon from './renderAbilityIcon';
+import RenderAbilityIcon from './renderAbilityIcon';
 import { PAPER_COLOR } from '../../constants/color';
 
 class RenderHeroList extends Component {
@@ -31,7 +32,7 @@ class RenderHeroList extends Component {
 		if (!value || !this.props.selectedHeroes) return null;
 
 		return (
-			<div key={name} onMouseDown={() => this.clickHero(name)}>
+			<Grid key={name} onMouseDown={() => this.clickHero(name)}>
 				<Paper
 					style={
 						!this.props.isRosterList &&
@@ -43,23 +44,30 @@ class RenderHeroList extends Component {
 						<ListItem>
 							<img alt={name} src={classData[name]} title={name} />
 							<ListItemText primary={name} secondary={`Cost: ${cost}`} />
-							{renderAbilityIcon(
-								classIcon[heroRace[0]],
-								heroRace[0],
-								inlineStyle
-							)}
-							{heroRace.length > 1
-								? renderAbilityIcon(
-										classIcon[heroRace[1]],
-										heroRace[1],
-										inlineStyle
-								  )
-								: null}
-							{renderAbilityIcon(classIcon[heroClass], heroClass)}
+							{
+								<RenderAbilityIcon
+									src={classIcon[heroRace[0]]}
+									iconName={heroRace[0]}
+									myStyle={inlineStyle}
+								/>
+							}
+							{heroRace.length > 1 ? (
+								<RenderAbilityIcon
+									src={classIcon[heroRace[1]]}
+									iconName={heroRace[1]}
+									myStyle={inlineStyle}
+								/>
+							) : null}
+							{
+								<RenderAbilityIcon
+									src={classIcon[heroClass]}
+									iconName={heroClass}
+								/>
+							}
 						</ListItem>
 					</Button>
 				</Paper>
-			</div>
+			</Grid>
 		);
 	}
 

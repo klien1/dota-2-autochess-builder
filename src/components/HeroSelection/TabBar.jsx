@@ -39,8 +39,8 @@ class TabBar extends Component {
 						style={{ minWidth: '500px' }}
 						value={value}
 						onChange={this.handleChange}
-						indicatorColor='secondary'
-						textColor='secondary'
+						indicatorColor='primary'
+						textColor='primary'
 						centered>
 						<Tab label={HEROES} />
 						<Tab label={CLASS} />

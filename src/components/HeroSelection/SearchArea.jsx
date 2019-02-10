@@ -3,13 +3,15 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import red from '@material-ui/core/colors/red';
-import blue from '@material-ui/core/colors/blue';
 import { connect } from 'react-redux';
 
 import SearchBar from './searchBar';
-import { CLEAR_SEARCH, SUBMIT } from '../../constants/text';
-import { PAPER_COLOR } from '../../constants/color';
+import { CLEAR_SEARCH, CLEAR_TEAM } from '../../constants/text';
+import {
+	PAPER_COLOR,
+	CLEAR_SEARCH_COLOR,
+	CLEAR_TEAM_COLOR
+} from '../../constants/color';
 import { resetSelectedHeroes, filterData } from '../../redux/actions';
 
 class SearchArea extends Component {
@@ -34,10 +36,9 @@ class SearchArea extends Component {
 
 	onSearchChange = event => {
 		const { value } = event.target;
-		if (value.length < 15)
-			this.setState({
-				searchValue: value
-			});
+		this.setState({
+			searchValue: value
+		});
 	};
 
 	renderButton(text, onClick, color, size = 'large') {
@@ -64,7 +65,7 @@ class SearchArea extends Component {
 				container
 				style={{ marginTop: '5px' }}
 				spacing={16}>
-				<Grid item md={12} lg={6}>
+				<Grid item xs={12} sm={12} md={12} lg={8} xl={9}>
 					<Paper style={{ backgroundColor: PAPER_COLOR }}>
 						<form onSubmit={this.submitSearch}>
 							<SearchBar
@@ -78,20 +79,25 @@ class SearchArea extends Component {
 				<Grid
 					item
 					md={12}
-					lg={6}
+					lg={4}
+					xl={3}
 					spacing={16}
 					container
-					justify='flex-start'
+					justify='space-between'
 					wrap='nowrap'
 					alignContent='center'>
-					<Grid item>
-						{this.renderButton(SUBMIT, () => this.startSearch(), blue[600])}
-					</Grid>
 					<Grid item>
 						{this.renderButton(
 							CLEAR_SEARCH,
 							() => this.resetSearch(),
-							red[600]
+							CLEAR_SEARCH_COLOR
+						)}
+					</Grid>
+					<Grid item>
+						{this.renderButton(
+							CLEAR_TEAM,
+							() => this.props.resetSelectedHeroes(),
+							CLEAR_TEAM_COLOR
 						)}
 					</Grid>
 				</Grid>

@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import Grid from '@material-ui/core/Grid';
+import List from '@material-ui/core/List';
 import Paper from '@material-ui/core/Paper';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-// import Avatar from '@material-ui/core/Avatar';
 
-import renderAbilityIcon from '../HeroSelection/renderAbilityIcon';
+import RenderAbilityIcon from '../HeroSelection/renderAbilityIcon';
 import heroAbilities from '../../data/abilityData';
 import classIcons from '../../data/classIcons';
 import { DEMON } from '../../constants/heroRace';
@@ -46,23 +45,21 @@ class CurrentAbilities extends Component {
 	render() {
 		const abilities = this.generateAbility();
 		return (
-			<Grid>
-				<Grid>
-					{_.map(abilities, (value, key) => {
-						return (
-							<Paper key={key} style={{ backgroundColor: PAPER_COLOR }}>
-								<ListItem>
-									{renderAbilityIcon(classIcons[key], key)}
-									<ListItemText
-										primary={`${key} (${value.cost})`}
-										secondary={value.effect}
-									/>
-								</ListItem>
-							</Paper>
-						);
-					})}
-				</Grid>
-			</Grid>
+			<List dense>
+				{_.map(abilities, (value, key) => {
+					return (
+						<Paper key={key} style={{ backgroundColor: PAPER_COLOR }}>
+							<ListItem>
+								<RenderAbilityIcon src={classIcons[key]} iconName={key} />
+								<ListItemText
+									primary={`${key} (${value.cost})`}
+									secondary={value.effect}
+								/>
+							</ListItem>
+						</Paper>
+					);
+				})}
+			</List>
 		);
 	}
 }

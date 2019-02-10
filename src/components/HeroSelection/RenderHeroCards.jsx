@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import images from '../../data/images';
-// import images from '../../data/heroIcons';
 import classIcons from '../../data/classIcons';
 import { selectHero, deselectHero } from '../../redux/actions';
 import rhombus from '../../static/background/rhombus.png';

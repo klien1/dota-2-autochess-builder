@@ -29,5 +29,7 @@ export default {
 	Dragon: [{ 3: ability.DRAGON3 }],
 	Shaman: [{ 2: ability.SHAMAN2 }],
 	Demon: [{ 1: ability.DEMON1 }],
-	'Demon Hunter': [{ 1: ability.DEMONHUNTER1 }, { 2: ability.DEMONHUNTER2 }]
+	'Demon Hunter': [{ 1: ability.DEMONHUNTER1 }, { 2: ability.DEMONHUNTER2 }],
+	Ogre: [{}],
+	Dwarf: [{}]
 };
