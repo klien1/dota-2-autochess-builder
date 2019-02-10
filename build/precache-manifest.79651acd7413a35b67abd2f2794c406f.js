@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/dota-2-autochess-builder/static/media/Warrior.55fc45e8.png"
   },
   {
-    "revision": "e8e184c13071b10eeff7",
+    "revision": "01d93a58ea1a25ee6fed",
     "url": "/dota-2-autochess-builder/static/css/main.038040ed.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/dota-2-autochess-builder/static/media/DonkeyCourier.7edc3987.jpg"
   },
   {
-    "revision": "3a40b1e78c43bf690662",
-    "url": "/dota-2-autochess-builder/static/js/1.3a40b1e7.chunk.js"
+    "revision": "d34f2e9f2d8c54e781ce",
+    "url": "/dota-2-autochess-builder/static/js/1.d34f2e9f.chunk.js"
   },
   {
     "revision": "7f1454e35fbe94215447",
@@ -108,8 +108,8 @@ self.__precacheManifest = [
     "url": "/dota-2-autochess-builder/static/media/Warlock.016113ca.png"
   },
   {
-    "revision": "e8e184c13071b10eeff7",
-    "url": "/dota-2-autochess-builder/static/js/main.e8e184c1.chunk.js"
+    "revision": "01d93a58ea1a25ee6fed",
+    "url": "/dota-2-autochess-builder/static/js/main.01d93a58.chunk.js"
   },
   {
     "revision": "987b84570ea69ee660455b8d5e91f5f1",
@@ -128,20 +128,20 @@ self.__precacheManifest = [
     "url": "/dota-2-autochess-builder/static/media/roboto-latin-500.28546717.woff2"
   },
   {
-    "revision": "19b7a0adfdd4f808b53af7e2ce2ad4e5",
-    "url": "/dota-2-autochess-builder/static/media/roboto-latin-900.19b7a0ad.woff2"
-  },
-  {
     "revision": "037d830416495def72b7881024c14b7b",
     "url": "/dota-2-autochess-builder/static/media/roboto-latin-700.037d8304.woff2"
   },
   {
-    "revision": "e9dbbe8a693dd275c16d32feb101f1c1",
-    "url": "/dota-2-autochess-builder/static/media/roboto-latin-100.e9dbbe8a.woff"
+    "revision": "19b7a0adfdd4f808b53af7e2ce2ad4e5",
+    "url": "/dota-2-autochess-builder/static/media/roboto-latin-900.19b7a0ad.woff2"
   },
   {
     "revision": "6232f43d15b0e7a0bf0fe82e295bdd06",
     "url": "/dota-2-autochess-builder/static/media/roboto-latin-100italic.6232f43d.woff2"
+  },
+  {
+    "revision": "e9dbbe8a693dd275c16d32feb101f1c1",
+    "url": "/dota-2-autochess-builder/static/media/roboto-latin-100.e9dbbe8a.woff"
   },
   {
     "revision": "d704bb3d579b7d5e40880c75705c8a71",
@@ -152,12 +152,12 @@ self.__precacheManifest = [
     "url": "/dota-2-autochess-builder/static/media/roboto-latin-300.a1471d1d.woff"
   },
   {
-    "revision": "210a7c781f5a354a0e4985656ab456d9",
-    "url": "/dota-2-autochess-builder/static/media/roboto-latin-300italic.210a7c78.woff"
-  },
-  {
     "revision": "d69924b98acd849cdeba9fbff3f88ea6",
     "url": "/dota-2-autochess-builder/static/media/roboto-latin-300italic.d69924b9.woff2"
+  },
+  {
+    "revision": "210a7c781f5a354a0e4985656ab456d9",
+    "url": "/dota-2-autochess-builder/static/media/roboto-latin-300italic.210a7c78.woff"
   },
   {
     "revision": "bafb105baeb22d965c70fe52ba6b49d9",
@@ -166,6 +166,10 @@ self.__precacheManifest = [
   {
     "revision": "d8bcbe724fd6f4ba44d0ee6a2675890f",
     "url": "/dota-2-autochess-builder/static/media/roboto-latin-400italic.d8bcbe72.woff2"
+  },
+  {
+    "revision": "9680d5a0c32d2fd084e07bbc4c8b2923",
+    "url": "/dota-2-autochess-builder/static/media/roboto-latin-400italic.9680d5a0.woff"
   },
   {
     "revision": "de8b7431b74642e830af4d4f4b513ec9",
@@ -192,10 +196,6 @@ self.__precacheManifest = [
     "url": "/dota-2-autochess-builder/static/media/roboto-latin-700italic.846d1890.woff"
   },
   {
-    "revision": "9680d5a0c32d2fd084e07bbc4c8b2923",
-    "url": "/dota-2-autochess-builder/static/media/roboto-latin-400italic.9680d5a0.woff"
-  },
-  {
     "revision": "8c2ade503b34e31430d6c98aa29a52a3",
     "url": "/dota-2-autochess-builder/static/media/roboto-latin-900.8c2ade50.woff"
   },
@@ -208,11 +208,11 @@ self.__precacheManifest = [
     "url": "/dota-2-autochess-builder/static/media/roboto-latin-900italic.bc833e72.woff"
   },
   {
-    "revision": "3a40b1e78c43bf690662",
+    "revision": "d34f2e9f2d8c54e781ce",
     "url": "/dota-2-autochess-builder/static/css/1.37fbc765.chunk.css"
   },
   {
-    "revision": "e38491c61132ee20cb70c1dd438af58a",
+    "revision": "d50e962480ca2f2867f49b35bbc30135",
     "url": "/dota-2-autochess-builder/index.html"
   }
 ];
