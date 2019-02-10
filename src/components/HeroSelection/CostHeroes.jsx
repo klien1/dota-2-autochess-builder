@@ -32,10 +32,16 @@ class CostHeroes extends Component {
 
 	render() {
 		const distinctCost = this.getDistictHeroCost();
+		const splitColumns = this.props.split(distinctCost, this.props.columns);
+
+		const addedName = ' cost';
+		const renamedDistinctCost = _.map(distinctCost, value => {
+			return `${value}${addedName}`;
+		});
 		return (
 			<Grid container spacing={16}>
-				<ToggleAllCollapse value={distinctCost} />
-				{_.map(distinctCost, value => {
+				<ToggleAllCollapse value={renamedDistinctCost} />
+				{_.map(splitColumns, value => {
 					return (
 						<Grid
 							key={value}
@@ -44,9 +50,15 @@ class CostHeroes extends Component {
 							md={M_HERO_GRID_SIZE}
 							lg={L_HERO_GRID_SIZE}
 							xl={XL_HERO_GRID_SIZE}>
-							<RenderTitleCollapseList faction={value}>
-								<RenderHeroList heroData={this.filterHeroCost(value)} />
-							</RenderTitleCollapseList>
+							{_.map(value, curCost => {
+								return (
+									<RenderTitleCollapseList
+										key={curCost}
+										faction={`${curCost}${addedName}`}>
+										<RenderHeroList heroData={this.filterHeroCost(curCost)} />
+									</RenderTitleCollapseList>
+								);
+							})}
 						</Grid>
 					);
 				})}

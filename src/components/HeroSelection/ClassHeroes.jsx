@@ -27,7 +27,7 @@ class ClassHeroes extends Component {
 		return _.chain(heroData)
 			.map('heroClass')
 			.groupBy()
-			.sortBy(value => -value.length)
+			.sortBy(value => value)
 			.flatten()
 			.sortedUniq()
 			.value();
@@ -35,18 +35,11 @@ class ClassHeroes extends Component {
 
 	render() {
 		const uniqHeroClass = this.getDistictHeroClass();
+		const splitColumns = this.props.split(uniqHeroClass, this.props.columns);
 		return (
 			<Grid container spacing={16}>
-				{/* <Grid item xs={12} s={12} md={12} lg={12} xl={12}>
-					<button onClick={() => this.props.closeList(uniqHeroClass)}>
-						close all
-					</button>
-					<button onClick={() => this.props.openList(uniqHeroClass)}>
-						open all
-					</button>
-				</Grid> */}
 				<ToggleAllCollapse value={uniqHeroClass} />
-				{_.map(uniqHeroClass, (value, key) => {
+				{_.map(splitColumns, (value, key) => {
 					return (
 						<Grid
 							key={key}
@@ -55,9 +48,13 @@ class ClassHeroes extends Component {
 							md={M_HERO_GRID_SIZE}
 							lg={L_HERO_GRID_SIZE}
 							xl={XL_HERO_GRID_SIZE}>
-							<RenderTitleCollapseList faction={value}>
-								<RenderHeroList heroData={this.filterHeroClass(value)} />
-							</RenderTitleCollapseList>
+							{_.map(value, curClass => {
+								return (
+									<RenderTitleCollapseList key={curClass} faction={curClass}>
+										<RenderHeroList heroData={this.filterHeroClass(curClass)} />
+									</RenderTitleCollapseList>
+								);
+							})}
 						</Grid>
 					);
 				})}

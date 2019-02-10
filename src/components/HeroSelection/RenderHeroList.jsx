@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -32,42 +31,42 @@ class RenderHeroList extends Component {
 		if (!value || !this.props.selectedHeroes) return null;
 
 		return (
-			<Grid key={name} onMouseDown={() => this.clickHero(name)}>
-				<Paper
-					style={
-						!this.props.isRosterList &&
-						this.props.selectedHeroes[name] !== undefined
-							? { opacity: 0.5, backgroundColor: PAPER_COLOR }
-							: { backgroundColor: PAPER_COLOR }
-					}>
-					<Button style={{ width: '100%' }}>
-						<ListItem>
-							<img alt={name} src={classData[name]} title={name} />
-							<ListItemText primary={name} secondary={`Cost: ${cost}`} />
-							{
-								<RenderAbilityIcon
-									src={classIcon[heroRace[0]]}
-									iconName={heroRace[0]}
-									myStyle={inlineStyle}
-								/>
-							}
-							{heroRace.length > 1 ? (
-								<RenderAbilityIcon
-									src={classIcon[heroRace[1]]}
-									iconName={heroRace[1]}
-									myStyle={inlineStyle}
-								/>
-							) : null}
-							{
-								<RenderAbilityIcon
-									src={classIcon[heroClass]}
-									iconName={heroClass}
-								/>
-							}
-						</ListItem>
-					</Button>
-				</Paper>
-			</Grid>
+			<Paper
+				key={name}
+				onMouseDown={() => this.clickHero(name)}
+				style={
+					!this.props.isRosterList &&
+					this.props.selectedHeroes[name] !== undefined
+						? { opacity: 0.5, backgroundColor: PAPER_COLOR }
+						: { backgroundColor: PAPER_COLOR }
+				}>
+				<Button style={{ width: '100%' }}>
+					<ListItem>
+						<img alt={name} src={classData[name]} title={name} />
+						<ListItemText primary={name} secondary={`Cost: ${cost}`} />
+						{
+							<RenderAbilityIcon
+								src={classIcon[heroRace[0]]}
+								iconName={heroRace[0]}
+								myStyle={inlineStyle}
+							/>
+						}
+						{heroRace.length > 1 ? (
+							<RenderAbilityIcon
+								src={classIcon[heroRace[1]]}
+								iconName={heroRace[1]}
+								myStyle={inlineStyle}
+							/>
+						) : null}
+						{
+							<RenderAbilityIcon
+								src={classIcon[heroClass]}
+								iconName={heroClass}
+							/>
+						}
+					</ListItem>
+				</Button>
+			</Paper>
 		);
 	}
 

@@ -28,7 +28,7 @@ class RaceHeroes extends Component {
 			.map('heroRace')
 			.flatten()
 			.groupBy()
-			.sortBy(value => -value.length)
+			.sortBy(value => value)
 			.flatten()
 			.uniq()
 			.value();
@@ -36,10 +36,11 @@ class RaceHeroes extends Component {
 
 	render() {
 		const distinctRace = this.getDistictHeroRace();
+		const splitColumns = this.props.split(distinctRace, this.props.columns);
 		return (
 			<Grid container spacing={16}>
 				<ToggleAllCollapse value={distinctRace} />
-				{_.map(distinctRace, (value, key) => {
+				{_.map(splitColumns, (value, key) => {
 					return (
 						<Grid
 							key={key}
@@ -48,9 +49,13 @@ class RaceHeroes extends Component {
 							md={M_HERO_GRID_SIZE}
 							lg={L_HERO_GRID_SIZE}
 							xl={XL_HERO_GRID_SIZE}>
-							<RenderTitleCollapseList faction={value}>
-								<RenderHeroList heroData={this.filterHeroRace(value)} />
-							</RenderTitleCollapseList>
+							{_.map(value, curRace => {
+								return (
+									<RenderTitleCollapseList key={curRace} faction={curRace}>
+										<RenderHeroList heroData={this.filterHeroRace(curRace)} />
+									</RenderTitleCollapseList>
+								);
+							})}
 						</Grid>
 					);
 				})}
