@@ -44,13 +44,13 @@ class RenderHeroList extends Component {
 					<ListItem>
 						<img alt={name} src={classData[name]} title={name} />
 						<ListItemText primary={name} secondary={`Cost: ${cost}`} />
-						{
-							<RenderAbilityIcon
-								src={classIcon[heroRace[0]]}
-								iconName={heroRace[0]}
-								myStyle={inlineStyle}
-							/>
-						}
+
+						<RenderAbilityIcon
+							src={classIcon[heroRace[0]]}
+							iconName={heroRace[0]}
+							myStyle={inlineStyle}
+						/>
+
 						{heroRace.length > 1 ? (
 							<RenderAbilityIcon
 								src={classIcon[heroRace[1]]}
@@ -58,12 +58,11 @@ class RenderHeroList extends Component {
 								myStyle={inlineStyle}
 							/>
 						) : null}
-						{
-							<RenderAbilityIcon
-								src={classIcon[heroClass]}
-								iconName={heroClass}
-							/>
-						}
+
+						<RenderAbilityIcon
+							src={classIcon[heroClass]}
+							iconName={heroClass}
+						/>
 					</ListItem>
 				</Button>
 			</Paper>

@@ -37,7 +37,7 @@ export default ChildComponent => {
 		}
 
 		render() {
-			if (!!!this.props.heroData) return null;
+			if (!this.props.heroData) return null;
 			const width = this.getScreenWidth();
 			const numColumn = Math.floor(12 / width);
 			return (

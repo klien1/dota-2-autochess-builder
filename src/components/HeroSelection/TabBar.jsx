@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Paper from '@material-ui/core/Paper';
-import withWidth from '@material-ui/core/withWidth';
-import { compose } from 'redux';
 
 import ClassHeroes from './ClassHeroes';
 import RaceHeroes from './RaceHeroes';
@@ -21,7 +19,7 @@ class TabBar extends Component {
 		value: 0
 	};
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.fetchData();
 	}
 
@@ -62,10 +60,7 @@ class TabBar extends Component {
 	}
 }
 
-export default compose(
-	connect(
-		null,
-		{ fetchData }
-	),
-	withWidth()
+export default connect(
+	null,
+	{ fetchData }
 )(TabBar);

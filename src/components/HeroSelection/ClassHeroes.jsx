@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import _ from 'lodash';
 
-import {
-	M_HERO_GRID_SIZE,
-	L_HERO_GRID_SIZE,
-	XL_HERO_GRID_SIZE
-} from '../../constants/grid.jsx';
 import RenderTitleCollapseList from './renderTitleCollapseList';
 import RenderHeroList from './RenderHeroList';
 import HeroSelector from '../HigherOrderedComponents/HeroSelector';
 import ToggleAllCollapse from './toggleAllCollapse';
+import DisplayHeroWrapper from './displayHeroWrapper';
 
 class ClassHeroes extends Component {
 	state = {};
@@ -41,13 +37,7 @@ class ClassHeroes extends Component {
 				<ToggleAllCollapse value={uniqHeroClass} />
 				{_.map(splitColumns, (value, key) => {
 					return (
-						<Grid
-							key={key}
-							item
-							sm={12}
-							md={M_HERO_GRID_SIZE}
-							lg={L_HERO_GRID_SIZE}
-							xl={XL_HERO_GRID_SIZE}>
+						<DisplayHeroWrapper key={key}>
 							{_.map(value, curClass => {
 								return (
 									<RenderTitleCollapseList key={curClass} faction={curClass}>
@@ -55,7 +45,7 @@ class ClassHeroes extends Component {
 									</RenderTitleCollapseList>
 								);
 							})}
-						</Grid>
+						</DisplayHeroWrapper>
 					);
 				})}
 			</Grid>

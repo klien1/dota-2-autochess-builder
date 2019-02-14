@@ -19,7 +19,6 @@ export const filterData = filter => {
 
 	const arrayOfFilters = filter.split(' ').filter(item => item.length > 0);
 	const fileredData = _.pickBy(heroData, (value, key) => {
-		// if (checkFilter(filter, value, key)) return true;
 		for (let i = arrayOfFilters.length - 1; i >= 0; --i)
 			if (checkFilter(arrayOfFilters[i], value, key)) return true;
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import _ from 'lodash';
 
@@ -7,11 +6,7 @@ import RenderHeroList from './RenderHeroList';
 import HeroSelector from '../HigherOrderedComponents/HeroSelector';
 import RenderTitleCollapseList from './renderTitleCollapseList';
 import ToggleAllCollapse from './toggleAllCollapse';
-import {
-	M_HERO_GRID_SIZE,
-	L_HERO_GRID_SIZE,
-	XL_HERO_GRID_SIZE
-} from '../../constants/grid.jsx';
+import DisplayHeroWrapper from './displayHeroWrapper';
 
 class CostHeroes extends Component {
 	filterHeroCost(cost) {
@@ -43,13 +38,7 @@ class CostHeroes extends Component {
 				<ToggleAllCollapse value={renamedDistinctCost} />
 				{_.map(splitColumns, value => {
 					return (
-						<Grid
-							key={value}
-							item
-							sm={12}
-							md={M_HERO_GRID_SIZE}
-							lg={L_HERO_GRID_SIZE}
-							xl={XL_HERO_GRID_SIZE}>
+						<DisplayHeroWrapper key={value}>
 							{_.map(value, curCost => {
 								return (
 									<RenderTitleCollapseList
@@ -59,7 +48,7 @@ class CostHeroes extends Component {
 									</RenderTitleCollapseList>
 								);
 							})}
-						</Grid>
+						</DisplayHeroWrapper>
 					);
 				})}
 			</Grid>

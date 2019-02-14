@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import _ from 'lodash';
-import withWidth from '@material-ui/core/withWidth';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
 
 import RenderHeroList from './RenderHeroList';
-import {
-	M_HERO_GRID_SIZE,
-	L_HERO_GRID_SIZE,
-	XL_HERO_GRID_SIZE
-} from '../../constants/grid.jsx';
+import HeroSelector from '../HigherOrderedComponents/HeroSelector';
+import DisplayHeroWrapper from './displayHeroWrapper';
 
 class AlphaHeroes extends Component {
 	splitObjectList(size) {
@@ -29,36 +23,16 @@ class AlphaHeroes extends Component {
 		return splitArrOfHeroes;
 	}
 
-	getScreenWidth() {
-		switch (this.props.width) {
-			case 'md':
-				return M_HERO_GRID_SIZE;
-			case 'lg':
-				return L_HERO_GRID_SIZE;
-			case 'xl':
-				return XL_HERO_GRID_SIZE;
-			default:
-				return 12;
-		}
-	}
-
 	render() {
-		const width = this.getScreenWidth();
-		const splitArrOfHeroes = this.splitObjectList(Math.floor(12 / width));
+		const splitArrOfHeroes = this.splitObjectList(this.props.columns);
 
 		return (
 			<Grid container spacing={16}>
 				{_.map(splitArrOfHeroes, (values, keys) => {
 					return (
-						<Grid
-							key={keys}
-							item
-							sm={12}
-							md={M_HERO_GRID_SIZE}
-							lg={L_HERO_GRID_SIZE}
-							xl={XL_HERO_GRID_SIZE}>
+						<DisplayHeroWrapper key={keys}>
 							<RenderHeroList heroData={values} />
-						</Grid>
+						</DisplayHeroWrapper>
 					);
 				})}
 			</Grid>
@@ -66,11 +40,4 @@ class AlphaHeroes extends Component {
 	}
 }
 
-const mapStateToProps = ({ heroData }) => {
-	return { heroData };
-};
-
-export default compose(
-	withWidth(),
-	connect(mapStateToProps)
-)(AlphaHeroes);
+export default HeroSelector(AlphaHeroes);

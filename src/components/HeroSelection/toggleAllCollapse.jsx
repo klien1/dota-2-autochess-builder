@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Grid, Button } from '@material-ui/core';
 
 import { openList, closeList } from '../../redux/actions';
-// import { OPEN_ALL_COLOR, CLOSE_ALL_COLOR } from '../../constants/color';
 
 const toggleAllCollapse = ({ value, openList, closeList }) => {
 	return (
@@ -11,7 +10,6 @@ const toggleAllCollapse = ({ value, openList, closeList }) => {
 			<Grid item>
 				<Button
 					color='secondary'
-					// style={{ backgroundColor: OPEN_ALL_COLOR, color: 'white' }}
 					style={{ color: 'white' }}
 					variant='contained'
 					onClick={() => openList(value)}>
@@ -21,7 +19,6 @@ const toggleAllCollapse = ({ value, openList, closeList }) => {
 			<Grid item>
 				<Button
 					color='secondary'
-					// style={{ backgroundColor: CLOSE_ALL_COLOR, color: 'white' }}
 					style={{ color: 'white' }}
 					variant='contained'
 					onClick={() => closeList(value)}>
