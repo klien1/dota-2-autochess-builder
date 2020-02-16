@@ -1,18 +1,18 @@
 body,
 html {
-	height: 100%;
-	width: 100%;
-	margin: 0;
-	padding: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-	margin: 0;
-	background-color: grey;
-	background-image: url('../static/background/DonkeyCourier.jpg');
-	background-attachment: fixed;
-	height: 100%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+  margin: 0;
+  background-color: grey;
+  background-image: url("../static/background/DonkeyCourier.jpg");
+  background-attachment: fixed;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

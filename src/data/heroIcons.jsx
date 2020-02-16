@@ -1,5 +1,5 @@
-import importAll from '../helper/importAll';
+import importAll from "../helper/importAll";
 
 export default importAll(
-	require.context('../static/miniHeroIcons', false, /.png$/)
+  require.context("../static/miniHeroIcons", false, /.png$/)
 );

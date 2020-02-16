@@ -1,99 +1,103 @@
 .Dragon {
-	background-color: rgb(255, 60, 0);
+  background-color: rgb(255, 60, 0);
 }
 
 .Orc {
-	background-color: red;
+  background-color: red;
 }
 
 .Beast {
-	background-color: green;
+  background-color: green;
 }
 
 .Ogre {
-	background-color: deepskyblue;
+  background-color: deepskyblue;
 }
 
 .Undead {
-	background-color: grey;
+  background-color: grey;
 }
 
 .Goblin {
-	background-color: firebrick;
+  background-color: firebrick;
 }
 
 .Troll {
-	background-color: silver;
+  background-color: silver;
 }
 
 .Elf {
-	background-color: dodgerblue;
+  background-color: dodgerblue;
 }
 
 .Element {
-	background-color: yellow;
+  background-color: yellow;
 }
 
 .Human {
-	background-color: white;
+  background-color: white;
 }
 
 .Dwarf {
-	background-color: orange;
+  background-color: orange;
 }
 
 .Naga {
-	background-color: pink;
+  background-color: pink;
 }
 
 .Demon {
-	background-color: blueviolet;
+  background-color: blueviolet;
 }
 
 .Warrior {
-	background-color: peachpuff;
+  background-color: peachpuff;
 }
 
 .Druid {
-	background-color: darkorange;
+  background-color: darkorange;
 }
 
 .Mage {
-	background-color: turquoise;
+  background-color: turquoise;
 }
 
 .Assassin {
-	background-color: khaki;
+  background-color: khaki;
 }
 
 .Mech {
-	background-color: sienna;
+  background-color: sienna;
 }
 
 .Shaman {
-	background-color: rgb(81, 81, 177);
+  background-color: rgb(81, 81, 177);
 }
 
 .Knight {
-	background-color: lightcoral;
+  background-color: lightcoral;
 }
 
 .DemonHunter {
-	background-color: rgb(253, 14, 106);
+  background-color: rgb(253, 14, 106);
 }
 
 .Hunter {
-	background-color: springgreen;
+  background-color: springgreen;
 }
 
 .Warlock {
-	background-color: mediumpurple;
+  background-color: mediumpurple;
 }
 
 .title {
-	color: #ff4411;
-	font-size: 48px;
-	/* font-family: 'Signika', sans-serif; */
-	font-family: 'Trocchi', sans-serif;
-	text-shadow: 2px 2px black;
+  color: #ff4411;
+  font-size: 60px;
+  /* font-family: 'Signika', sans-serif; */
+  font-family: "Trocchi", sans-serif;
+  /* text-shadow: 2px 2px black; */
+}
+
+.shadow {
+  text-shadow: 2px 2px black;
 }

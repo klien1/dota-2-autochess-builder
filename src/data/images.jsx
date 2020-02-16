@@ -1,7 +1,7 @@
-import importAll from '../helper/importAll';
+import importAll from "../helper/importAll";
 
 const images = importAll(
-	require.context('../static/heroImage', false, /.png$/)
+  require.context("../static/heroImage", false, /.png$/)
 );
 
 export default images;
