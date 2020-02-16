@@ -6,6 +6,7 @@
 	"dependencies": {
 		"@material-ui/core": "^3.9.2",
 		"@material-ui/icons": "^3.0.2",
+		"firebase": "^7.8.2",
 		"gh-pages": "^2.0.1",
 		"lodash": "^4.17.15",
 		"react": "^16.7.0",
@@ -13,6 +14,8 @@
 		"react-redux": "^6.0.0",
 		"react-scripts": "^3.4.0",
 		"redux": "^4.0.1",
+		"redux-logger": "^3.0.6",
+		"redux-thunk": "^2.3.0",
 		"typeface-roboto": "0.0.54"
 	},
 	"scripts": {

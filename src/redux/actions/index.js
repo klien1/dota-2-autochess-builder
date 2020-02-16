@@ -1,3 +1,3 @@
-export * from "./selectHeroAction";
-export * from "./fetchData";
-export * from "./collapseListAction";
+export * from "./select-hero.actions";
+export * from "./fetch-data.actions";
+export * from "./collapse-list.actions";

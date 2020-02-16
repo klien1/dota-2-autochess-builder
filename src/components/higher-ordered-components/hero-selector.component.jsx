@@ -6,7 +6,7 @@ import {
   M_HERO_GRID_SIZE,
   L_HERO_GRID_SIZE,
   XL_HERO_GRID_SIZE
-} from "../../constants/grid.jsx";
+} from "../../constants/grid";
 
 export default ChildComponent => {
   class ComposedComponent extends Component {

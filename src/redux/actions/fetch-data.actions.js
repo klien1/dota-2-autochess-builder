@@ -2,11 +2,15 @@ import _ from "lodash";
 
 import { FETCH_DATA } from "../../constants/actionTypes";
 import heroData from "../../data/heroData";
+import abilityData from "../../data/abilityData";
 
 export const fetchData = () => {
   return {
     type: FETCH_DATA,
-    heroData
+    payload: {
+      heroData,
+      abilityData
+    }
   };
 };
 
@@ -14,7 +18,7 @@ export const filterData = filter => {
   if (!filter || filter.trim().length === 0)
     return {
       type: FETCH_DATA,
-      heroData
+      payload: heroData
     };
 
   const arrayOfFilters = filter.split(" ").filter(item => item.length > 0);
@@ -27,10 +31,11 @@ export const filterData = filter => {
 
   return {
     type: FETCH_DATA,
-    heroData: fileredData
+    payload: fileredData
   };
 };
 
+// helper functions
 const checkFilter = (filter, value, key) => {
   if (
     hasString(key, filter) ||

@@ -5,9 +5,10 @@ import Tooltip from "@material-ui/core/Tooltip";
 import Avatar from "@material-ui/core/Avatar";
 import _ from "lodash";
 
-import abilityData from "../../data/abilityData";
+import { connect } from "react-redux";
+// import abilityData from "../../data/abilityData";
 
-const HeroCardAbilityIcon = ({ src, iconName, myStyle = {} }) => {
+const HeroCardAbilityIcon = ({ src, iconName, myStyle = {}, abilityData }) => {
   if (!abilityData[iconName]) return null;
   const description = (
     <Grid>
@@ -35,4 +36,8 @@ const HeroCardAbilityIcon = ({ src, iconName, myStyle = {} }) => {
   );
 };
 
-export default HeroCardAbilityIcon;
+const mapStateToProps = ({ abilityData }) => ({
+  abilityData
+});
+
+export default connect(mapStateToProps)(HeroCardAbilityIcon);

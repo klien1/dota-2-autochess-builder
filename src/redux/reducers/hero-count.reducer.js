@@ -1,5 +1,4 @@
 import _ from "lodash";
-
 import {
   SELECT_HERO,
   DESELECT_HERO,
@@ -25,7 +24,7 @@ export default (state = INITIAL_STATE, action) => {
       if (count < 10) {
         ++count;
         const newState = { ...state };
-        _.forEach(action.classAndRace, item => {
+        action.classAndRace.forEach(item => {
           ++newState[item];
         });
         return newState;

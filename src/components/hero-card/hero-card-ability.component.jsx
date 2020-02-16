@@ -11,10 +11,11 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 
 import _ from "lodash";
 
-import heroAbilities from "../../data/abilityData";
+// import heroAbilities from "../../data/abilityData";
+import { connect } from "react-redux";
 import classIcons from "../../data/classIcons";
 
-export default class HeroCardAbility extends Component {
+class HeroCardAbility extends Component {
   state = {};
 
   handleClick = curTarget => {
@@ -25,9 +26,10 @@ export default class HeroCardAbility extends Component {
   };
 
   displayAbilityList() {
-    if (!heroAbilities || !classIcons) return null;
+    const { abilityData } = this.props;
+    if (!abilityData || !classIcons) return null;
 
-    const sortedClassArray = _(heroAbilities)
+    const sortedClassArray = _(abilityData)
       .keys()
       .sortBy()
       .value();
@@ -42,7 +44,7 @@ export default class HeroCardAbility extends Component {
               {this.state[key] ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={this.state[key]} timeout="auto" unmountOnExit>
-              {_.map(heroAbilities[key], (v, k) => {
+              {_.map(abilityData[key], (v, k) => {
                 return (
                   <List key={k} component="div" disablePadding>
                     <ListItem button>
@@ -77,3 +79,9 @@ export default class HeroCardAbility extends Component {
     );
   }
 }
+
+const mapStateToProps = ({ abilityData }) => ({
+  abilityData
+});
+
+export default connect(mapStateToProps)(HeroCardAbility);

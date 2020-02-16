@@ -4,7 +4,7 @@ import {
   M_HERO_GRID_SIZE,
   L_HERO_GRID_SIZE,
   XL_HERO_GRID_SIZE
-} from "../../constants/grid.jsx";
+} from "../../constants/grid";
 
 const HeroCardWrapper = ({ children, uniqKey }) => {
   return (

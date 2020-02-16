@@ -1,19 +1,10 @@
-// import { createStore, compose } from "redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import logger from "redux-logger";
+
 import reducers from "./reducers";
 
-const INITIAL_STATE = {};
-// const enhancers = [];
+const middlewares = [logger];
 
-// const reduxDevToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__;
-// if (
-// 	process.env.NODE_ENV === 'development' &&
-// 	typeof reduxDevToolsExtension === 'function'
-// )
-// 	enhancers.push(reduxDevToolsExtension());
-
-// const composedEnhancers = compose(...enhancers);
-// const store = createStore(reducers, INITIAL_STATE, composedEnhancers);
-const store = createStore(reducers, INITIAL_STATE);
+const store = createStore(reducers, applyMiddleware(...middlewares));
 
 export default store;

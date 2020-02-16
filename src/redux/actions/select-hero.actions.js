@@ -3,6 +3,7 @@ import {
   DESELECT_HERO,
   RESET_SELECTED_HERO
 } from "../../constants/actionTypes";
+
 import heroData from "../../data/heroData";
 
 const getClassAndRace = heroName => {
