@@ -20,7 +20,7 @@ const HeroCardAbilityIcon = ({ src, iconName, myStyle = {} }) => {
         if (!curKey || !curAbility) return null;
         return (
           <p
-            style={{ fontSize: "12px" }}
+            style={{ fontSize: "14px" }}
             key={`${iconName}-${curKey}`}
           >{`(${curKey}): ${curAbility}`}</p>
         );

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import List from "@material-ui/core/List";
@@ -15,11 +15,10 @@ import { OGRE } from "../../constants/heroRace";
 import { DWARF } from "../../constants/heroRace";
 import { PAPER_COLOR } from "../../constants/color";
 
-class CurrentAbilities extends Component {
-  generateAbility() {
+const CurrentAbilities = ({ countHeroes }) => {
+  const generateAbility = () => {
     const obj = {};
 
-    const { countHeroes } = this.props;
     _.chain(countHeroes)
       .pickBy(val => val > 0)
       .map((value, key) => {
@@ -41,34 +40,30 @@ class CurrentAbilities extends Component {
       .value();
 
     return obj;
-  }
-
-  render() {
-    const abilities = this.generateAbility();
-    return (
-      <List dense>
-        {_.map(abilities, (value, key) => {
-          return (
-            <Paper key={key} style={{ backgroundColor: PAPER_COLOR }}>
-              <ListItem>
-                <HeroCardAbilityIcon src={classIcons[key]} iconName={key} />
-                <ListItemText
-                  primary={`${key} (${value.cost})`}
-                  secondary={value.effect}
-                />
-              </ListItem>
-            </Paper>
-          );
-        })}
-      </List>
-    );
-  }
-}
-
-const mapStateToProps = state => {
-  return {
-    countHeroes: state.countHeroes
   };
+
+  const abilities = generateAbility();
+  return (
+    <List dense>
+      {_.map(abilities, (value, key) => {
+        return (
+          <Paper key={key} style={{ backgroundColor: PAPER_COLOR }}>
+            <ListItem>
+              <HeroCardAbilityIcon src={classIcons[key]} iconName={key} />
+              <ListItemText
+                primary={`${key} (${value.cost})`}
+                secondary={value.effect}
+              />
+            </ListItem>
+          </Paper>
+        );
+      })}
+    </List>
+  );
 };
+
+const mapStateToProps = state => ({
+  countHeroes: state.countHeroes
+});
 
 export default connect(mapStateToProps)(CurrentAbilities);

@@ -1,33 +1,32 @@
 .rosterFlexContainer {
-	/* background-color: lightblue; */
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin-bottom: 1em;
-	width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  width: 100%;
 }
 
 .rosterFlexTitle {
-	flex-grow: 2;
+  flex-grow: 2;
 }
 
 .reset {
-	margin-left: 20px;
-	justify-content: flex-end;
+  margin-left: 20px;
+  justify-content: flex-end;
 }
 
 .unitCountBoxContainer {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .unitBox {
-	width: 50px;
-	position: relative;
+  width: 50px;
+  position: relative;
 }
 
 .classImg {
-	width: 50px;
-	height: 50px;
+  width: 50px;
+  height: 50px;
 }
