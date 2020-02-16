@@ -37,7 +37,7 @@ export default ChildComponent => {
     }
 
     render() {
-      if (!this.props.heroData) return null;
+      if (!this.props.filterHeroData) return null;
       const width = this.getScreenWidth();
       const numColumn = Math.floor(12 / width);
       return (
@@ -50,8 +50,8 @@ export default ChildComponent => {
     }
   }
 
-  const mapStateToProps = ({ heroData }) => {
-    return { heroData };
+  const mapStateToProps = ({ filterHeroData }) => {
+    return { filterHeroData };
   };
 
   return compose(connect(mapStateToProps), withWidth())(ComposedComponent);

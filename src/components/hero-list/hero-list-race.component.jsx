@@ -10,15 +10,15 @@ import HeroCardWrapper from "../hero-card/hero-card-wrapper.component";
 
 class RaceHeroes extends Component {
   filterHeroRace(heroRace) {
-    const { heroData } = this.props;
-    return _.pickBy(heroData, (value, key) => {
+    const { filterHeroData } = this.props;
+    return _.pickBy(filterHeroData, (value, key) => {
       if (value.heroRace.includes(heroRace)) return key;
     });
   }
 
   getDistictHeroRace() {
-    const { heroData } = this.props;
-    return _.chain(heroData)
+    const { filterHeroData } = this.props;
+    return _.chain(filterHeroData)
       .map("heroRace")
       .flatten()
       .groupBy()
@@ -41,7 +41,7 @@ class RaceHeroes extends Component {
                 return (
                   <HeroCardCollapseTitle key={curRace} faction={curRace}>
                     <HeroCardRenderList
-                      heroData={this.filterHeroRace(curRace)}
+                      filterHeroData={this.filterHeroRace(curRace)}
                     />
                   </HeroCardCollapseTitle>
                 );

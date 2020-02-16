@@ -5,3 +5,4 @@ export const FETCH_DATA = "FETCH_DATA";
 export const OPEN_LIST = "OPEN_LIST";
 export const CLOSE_LIST = "CLOSE_LIST";
 export const TOGGLE_LIST = "TOGGLE_LIST";
+export const FILTER_HERO = "FILTER_HERO";

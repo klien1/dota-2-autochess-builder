@@ -8,9 +8,9 @@ import HeroCardWrapper from "../hero-card/hero-card-wrapper.component";
 
 class AlphaHeroes extends Component {
   splitObjectList(size) {
-    const { heroData } = this.props;
-    if (!heroData) return null;
-    const keys = Object.values(heroData);
+    const { filterHeroData } = this.props;
+    if (!filterHeroData) return null;
+    const keys = Object.values(filterHeroData);
     let splitArrOfHeroes = [...Array(size)].map(() => Array(0));
 
     let index = 0;
@@ -31,7 +31,7 @@ class AlphaHeroes extends Component {
         {_.map(splitArrOfHeroes, (values, keys) => {
           return (
             <HeroCardWrapper key={keys}>
-              <HeroCardRenderList heroData={values} />
+              <HeroCardRenderList filterHeroData={values} />
             </HeroCardWrapper>
           );
         })}

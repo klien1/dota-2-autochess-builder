@@ -12,16 +12,16 @@ class ClassHeroes extends Component {
   state = {};
 
   filterHeroClass(heroClass) {
-    const { heroData } = this.props;
+    const { filterHeroData } = this.props;
 
-    return _.pickBy(heroData, (value, key) => {
+    return _.pickBy(filterHeroData, (value, key) => {
       if (value.heroClass === heroClass) return key;
     });
   }
 
   getDistictHeroClass() {
-    const { heroData } = this.props;
-    return _.chain(heroData)
+    const { filterHeroData } = this.props;
+    return _.chain(filterHeroData)
       .map("heroClass")
       .groupBy()
       .sortBy(value => value)
@@ -43,7 +43,7 @@ class ClassHeroes extends Component {
                 return (
                   <HeroCardCollapseTitle key={curClass} faction={curClass}>
                     <HeroCardRenderList
-                      heroData={this.filterHeroClass(curClass)}
+                      filterHeroData={this.filterHeroClass(curClass)}
                     />
                   </HeroCardCollapseTitle>
                 );

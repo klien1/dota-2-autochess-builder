@@ -72,10 +72,10 @@ class HeroCardRenderList extends Component {
   }
 
   render() {
-    const { heroData } = this.props;
+    const { filterHeroData } = this.props;
     return (
       <List dense>
-        {_.map(heroData, value => {
+        {_.map(filterHeroData, value => {
           return this.renderListItem(value);
         })}
       </List>

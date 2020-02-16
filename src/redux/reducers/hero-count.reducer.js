@@ -9,6 +9,7 @@ import * as heroRace from "../../constants/heroRace";
 
 const INITIAL_STATE = {};
 
+// NEED TO EXTRACT FROM HERO DATA
 _.forEach(heroClass, curClass => {
   INITIAL_STATE[curClass] = 0;
 });
@@ -17,14 +18,13 @@ _.forEach(heroRace, curRace => {
   INITIAL_STATE[curRace] = 0;
 });
 
-let count = 0;
 export default (state = INITIAL_STATE, action) => {
+  const { classAndRace, numSelectedHeroes } = action;
   switch (action.type) {
     case SELECT_HERO: {
-      if (count < 10) {
-        ++count;
+      if (numSelectedHeroes < 10) {
         const newState = { ...state };
-        action.classAndRace.forEach(item => {
+        classAndRace.forEach(item => {
           ++newState[item];
         });
         return newState;
@@ -32,10 +32,9 @@ export default (state = INITIAL_STATE, action) => {
       return state;
     }
     case DESELECT_HERO: {
-      if (count > 0) {
-        --count;
+      if (numSelectedHeroes > 0) {
         const newState = { ...state };
-        action.classAndRace.forEach(item => {
+        classAndRace.forEach(item => {
           --newState[item];
         });
         return newState;
@@ -43,7 +42,6 @@ export default (state = INITIAL_STATE, action) => {
       return state;
     }
     case RESET_SELECTED_HERO: {
-      count = 0;
       return INITIAL_STATE;
     }
     default:

@@ -42,7 +42,9 @@ const HeroCardCollapseTitle = props => {
               badgeContent={counter}
               color="primary"
               style={{ margin: "0px 1em" }}
-            />
+            >
+              &nbsp;
+            </Badge>
           )}
 
           <ListItemText inset={!classIcons[faction]} primary={title} />

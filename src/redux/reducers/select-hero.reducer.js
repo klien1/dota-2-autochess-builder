@@ -3,15 +3,14 @@ import {
   DESELECT_HERO,
   RESET_SELECTED_HERO
 } from "../../constants/actionTypes";
-import _ from "lodash";
 
 const INITIAL_STATE = {};
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SELECT_HERO:
-      const { heroName } = action;
-      if (_.size(state) < 10) return { ...state, [heroName]: heroName };
+      const { heroName, numSelectedHeroes } = action;
+      if (numSelectedHeroes < 10) return { ...state, [heroName]: heroName };
       return state;
     case DESELECT_HERO:
       const temp = { ...state };

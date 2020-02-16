@@ -10,15 +10,15 @@ import HeroCardWrapper from "../hero-card/hero-card-wrapper.component";
 
 class CostHeroes extends Component {
   filterHeroCost(cost) {
-    const { heroData } = this.props;
-    return _.pickBy(heroData, (value, key) => {
+    const { filterHeroData } = this.props;
+    return _.pickBy(filterHeroData, (value, key) => {
       if (value.cost === cost) return key;
     });
   }
 
   getDistictHeroCost() {
-    const { heroData } = this.props;
-    return _.chain(heroData)
+    const { filterHeroData } = this.props;
+    return _.chain(filterHeroData)
       .map("cost")
       .uniq()
       .sort()
@@ -46,7 +46,7 @@ class CostHeroes extends Component {
                     faction={`${curCost}${addedName}`}
                   >
                     <HeroCardRenderList
-                      heroData={this.filterHeroCost(curCost)}
+                      filterHeroData={this.filterHeroCost(curCost)}
                     />
                   </HeroCardCollapseTitle>
                 );
