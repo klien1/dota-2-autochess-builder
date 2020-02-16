@@ -12,3 +12,4 @@ export const TEAM = "Team";
 export const CLASS_COUNT = "Class Count";
 export const SEARCH_BAR_PLACEHOLDER =
   "Search by hero name or class or race. e.g. razor";
+export const SEARCH = "Search";

@@ -11,7 +11,6 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 
 import _ from "lodash";
 
-// import heroAbilities from "../../data/abilityData";
 import { connect } from "react-redux";
 import classIcons from "../../data/classIcons";
 

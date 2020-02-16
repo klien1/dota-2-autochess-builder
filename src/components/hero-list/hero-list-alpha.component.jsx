@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
-import _ from "lodash";
+// import _ from "lodash";
 
 import HeroCardRenderList from "../hero-card/hero-card-render-list.component";
 import HeroSelector from "../higher-ordered-components/hero-selector.component";
@@ -28,7 +28,7 @@ class AlphaHeroes extends Component {
 
     return (
       <Grid container spacing={16}>
-        {_.map(splitArrOfHeroes, (values, keys) => {
+        {splitArrOfHeroes.map((values, keys) => {
           return (
             <HeroCardWrapper key={keys}>
               <HeroCardRenderList filterHeroData={values} />

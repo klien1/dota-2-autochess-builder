@@ -6,8 +6,9 @@ import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
 
 import SearchBar from "./search-bar.component";
-import { CLEAR_SEARCH, CLEAR_TEAM } from "../../constants/text";
+import { CLEAR_SEARCH, CLEAR_TEAM, SEARCH } from "../../constants/text";
 import {
+  SEARCH_COLOR,
   PAPER_COLOR,
   CLEAR_SEARCH_COLOR,
   CLEAR_TEAM_COLOR
@@ -67,7 +68,7 @@ class SearchArea extends Component {
         style={{ marginTop: "5px" }}
         spacing={16}
       >
-        <Grid item xs={12} sm={12} md={12} lg={7} xl={9}>
+        <Grid item xs={12} sm={12} md={12} lg={6} xl={8}>
           <Paper style={{ backgroundColor: PAPER_COLOR }}>
             <form onSubmit={this.submitSearch}>
               <SearchBar
@@ -81,14 +82,17 @@ class SearchArea extends Component {
         <Grid
           item
           md={12}
-          lg={5}
-          xl={3}
-          spacing={16}
+          lg={6}
+          xl={4}
+          spacing={8}
           container
           justify="space-between"
           wrap="nowrap"
           alignContent="center"
         >
+          <Grid item>
+            {this.renderButton(SEARCH, () => this.startSearch(), SEARCH_COLOR)}
+          </Grid>
           <Grid item>
             {this.renderButton(
               CLEAR_SEARCH,

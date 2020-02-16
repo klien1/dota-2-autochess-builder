@@ -8,15 +8,14 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 import HeroCardAbilityIcon from "../hero-card/hero-card-ability-icon.component";
 
-import heroAbilities from "../../data/abilityData";
 import classIcons from "../../data/classIcons";
-import { DEMON } from "../../constants/heroRace";
-import { OGRE } from "../../constants/heroRace";
-import { DWARF } from "../../constants/heroRace";
 import { PAPER_COLOR } from "../../constants/color";
 
-const CurrentAbilities = ({ countHeroes }) => {
+const CurrentAbilities = ({ countHeroes, abilityData }) => {
   const generateAbility = () => {
+    const DEMON = "Demon";
+    const OGRE = "Ogre";
+    const DWARF = "Dwarf";
     const obj = {};
 
     _.chain(countHeroes)
@@ -28,7 +27,7 @@ const CurrentAbilities = ({ countHeroes }) => {
           return null;
         }
 
-        const curHeroAbility = heroAbilities[key]; // arr of [{},{},{}]
+        const curHeroAbility = abilityData[key];
         for (let i = curHeroAbility.length - 1; i >= 0; --i) {
           const curKey = Object.keys(curHeroAbility[i])[0];
           const ability = Object.values(curHeroAbility[i])[0];
@@ -63,7 +62,8 @@ const CurrentAbilities = ({ countHeroes }) => {
 };
 
 const mapStateToProps = state => ({
-  countHeroes: state.countHeroes
+  countHeroes: state.countHeroes,
+  abilityData: state.abilityData
 });
 
 export default connect(mapStateToProps)(CurrentAbilities);

@@ -6,7 +6,6 @@ import Avatar from "@material-ui/core/Avatar";
 import _ from "lodash";
 
 import { connect } from "react-redux";
-// import abilityData from "../../data/abilityData";
 
 const HeroCardAbilityIcon = ({ src, iconName, myStyle = {}, abilityData }) => {
   if (!abilityData[iconName]) return null;
