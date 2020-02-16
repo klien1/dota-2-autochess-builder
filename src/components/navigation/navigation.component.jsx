@@ -4,10 +4,10 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Paper from "@material-ui/core/Paper";
 
-import ClassHeroes from "../hero-list/class-heroes.component";
-import RaceHeroes from "../hero-list/race-heroes.component";
-import CostHeroes from "../hero-list/cost-heroes.component";
-import AlphaHeroes from "../hero-list/alpha-heroes.component";
+import HeroListClass from "../hero-list/hero-list-class.component";
+import HeroListRace from "../hero-list/hero-list-race.component";
+import HeroListCost from "../hero-list/hero-list-cost.component";
+import HeroListAlpha from "../hero-list/hero-list-alpha.component";
 import SearchArea from "../search/search-area.component";
 
 import { fetchData } from "../../redux/actions";
@@ -48,10 +48,10 @@ class Navigation extends Component {
           </Tabs>
         </Paper>
         <SearchArea />
-        {value === 0 && <AlphaHeroes />}
-        {value === 1 && <ClassHeroes />}
-        {value === 2 && <RaceHeroes />}
-        {value === 3 && <CostHeroes />}
+        {value === 0 && <HeroListAlpha />}
+        {value === 1 && <HeroListClass />}
+        {value === 2 && <HeroListRace />}
+        {value === 3 && <HeroListCost />}
       </div>
     );
   }

@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import _ from "lodash";
 
-import RenderHeroList from "../hero-card/hero-card-render-list.component";
+import HeroCardRenderList from "../hero-card/hero-card-render-list.component";
 import HeroSelector from "../higher-ordered-components/hero-selector.component";
-import RenderTitleCollapseList from "../hero-card/hero-card-collapse-title.component";
-import ToggleCollapse from "../hero-card/hero-card-toggle-collapse.component";
-// import DisplayHeroWrapper from "../hero-grid/hero-grid-wrapper.component";
+import HeroCardCollapseTitle from "../hero-card/hero-card-collapse-title.component";
+import HeroCardToggleCollapse from "../hero-card/hero-card-toggle-collapse.component";
 import HeroCardWrapper from "../hero-card/hero-card-wrapper.component";
 
 class CostHeroes extends Component {
@@ -36,18 +35,20 @@ class CostHeroes extends Component {
     });
     return (
       <Grid container spacing={16}>
-        <ToggleCollapse value={renamedDistinctCost} />
+        <HeroCardToggleCollapse value={renamedDistinctCost} />
         {_.map(splitColumns, value => {
           return (
             <HeroCardWrapper key={value}>
               {_.map(value, curCost => {
                 return (
-                  <RenderTitleCollapseList
+                  <HeroCardCollapseTitle
                     key={curCost}
                     faction={`${curCost}${addedName}`}
                   >
-                    <RenderHeroList heroData={this.filterHeroCost(curCost)} />
-                  </RenderTitleCollapseList>
+                    <HeroCardRenderList
+                      heroData={this.filterHeroCost(curCost)}
+                    />
+                  </HeroCardCollapseTitle>
                 );
               })}
             </HeroCardWrapper>
