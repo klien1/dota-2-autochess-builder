@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dota-2-autochess-builder/static/css/main.ba79a66c.chunk.css",
-    "main.js": "/dota-2-autochess-builder/static/js/main.81db4183.chunk.js",
-    "main.js.map": "/dota-2-autochess-builder/static/js/main.81db4183.chunk.js.map",
+    "main.js": "/dota-2-autochess-builder/static/js/main.b86960b6.chunk.js",
+    "main.js.map": "/dota-2-autochess-builder/static/js/main.b86960b6.chunk.js.map",
     "runtime-main.js": "/dota-2-autochess-builder/static/js/runtime-main.ac5c89c2.js",
     "runtime-main.js.map": "/dota-2-autochess-builder/static/js/runtime-main.ac5c89c2.js.map",
     "static/css/2.85b49db4.chunk.css": "/dota-2-autochess-builder/static/css/2.85b49db4.chunk.css",
     "static/js/2.558e723b.chunk.js": "/dota-2-autochess-builder/static/js/2.558e723b.chunk.js",
     "static/js/2.558e723b.chunk.js.map": "/dota-2-autochess-builder/static/js/2.558e723b.chunk.js.map",
     "index.html": "/dota-2-autochess-builder/index.html",
-    "precache-manifest.b372de9676a68a391acf9602de496303.js": "/dota-2-autochess-builder/precache-manifest.b372de9676a68a391acf9602de496303.js",
+    "precache-manifest.46503ca0e92202b0caaec24f7166a854.js": "/dota-2-autochess-builder/precache-manifest.46503ca0e92202b0caaec24f7166a854.js",
     "service-worker.js": "/dota-2-autochess-builder/service-worker.js",
     "static/css/2.85b49db4.chunk.css.map": "/dota-2-autochess-builder/static/css/2.85b49db4.chunk.css.map",
     "static/css/main.ba79a66c.chunk.css.map": "/dota-2-autochess-builder/static/css/main.ba79a66c.chunk.css.map",
@@ -44,6 +44,6 @@
     "static/css/2.85b49db4.chunk.css",
     "static/js/2.558e723b.chunk.js",
     "static/css/main.ba79a66c.chunk.css",
-    "static/js/main.81db4183.chunk.js"
+    "static/js/main.b86960b6.chunk.js"
   ]
 }

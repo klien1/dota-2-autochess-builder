@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "64502403b45756efde8d846c2b01743c",
+    "revision": "1c830085200938730b29eda9b664805e",
     "url": "/dota-2-autochess-builder/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dota-2-autochess-builder/static/css/2.85b49db4.chunk.css"
   },
   {
-    "revision": "3168607fb88d57df0a85",
+    "revision": "3542dde356ec3450293e",
     "url": "/dota-2-autochess-builder/static/css/main.ba79a66c.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dota-2-autochess-builder/static/js/2.558e723b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3168607fb88d57df0a85",
-    "url": "/dota-2-autochess-builder/static/js/main.81db4183.chunk.js"
+    "revision": "3542dde356ec3450293e",
+    "url": "/dota-2-autochess-builder/static/js/main.b86960b6.chunk.js"
   },
   {
     "revision": "7389cef8b010f210606f",
