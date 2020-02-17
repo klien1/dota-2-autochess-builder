@@ -32,7 +32,6 @@ class SearchArea extends Component {
 
   startSearch = () => {
     this.props.filterData(this.state.searchValue);
-    this.setState({ searchValue: "" });
   };
 
   onSearchChange = event => {

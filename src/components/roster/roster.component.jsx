@@ -10,11 +10,12 @@ const CurrentRoster = ({ selectedHeroes, heroData }) => {
       const value = selectedHeroes[key];
       filter[value] = heroData[value];
     }
-
     return filter;
   };
 
-  return <HeroCardRenderList isRosterList heroData={filterSelectedHero()} />;
+  return (
+    <HeroCardRenderList isRosterList filterHeroData={filterSelectedHero()} />
+  );
 };
 
 const mapStateToProps = ({ selectedHeroes, heroData }) => ({

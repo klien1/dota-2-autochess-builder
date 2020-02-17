@@ -20,8 +20,6 @@ class Navigation extends Component {
   };
 
   componentDidMount() {
-    // addData("heroes", heroData);
-    // addData("abilities", abilityData);
     this.props.fetchData();
   }
 

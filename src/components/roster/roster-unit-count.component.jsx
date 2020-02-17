@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import _ from "lodash";
 import { Badge, Grid, Paper } from "@material-ui/core";
 import { PAPER_COLOR } from "../../constants/color";
-
+import _ from "lodash";
 import classIcons from "../../data/classIcons";
 import HeroCardAbilityIcon from "../hero-card/hero-card-ability-icon.component";
 
