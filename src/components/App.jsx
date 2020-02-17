@@ -24,7 +24,7 @@ const App = () => {
       <div className="MainBackground">
         <MuiThemeProvider theme={theme}>
           <Grid style={{ margin: "0em 3em" }}>
-            <span className="shadow title">{TITLE}</span>;
+            <span className="shadow title">{TITLE}</span>
             <Grid container spacing={24}>
               <Grid item md={8} lg={9}>
                 <Navigation />
