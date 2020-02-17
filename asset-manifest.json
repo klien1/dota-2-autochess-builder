@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/dota-2-autochess-builder/static/css/main.ba79a66c.chunk.css",
-    "main.js": "/dota-2-autochess-builder/static/js/main.c4fb7f7b.chunk.js",
-    "main.js.map": "/dota-2-autochess-builder/static/js/main.c4fb7f7b.chunk.js.map",
+    "main.js": "/dota-2-autochess-builder/static/js/main.81db4183.chunk.js",
+    "main.js.map": "/dota-2-autochess-builder/static/js/main.81db4183.chunk.js.map",
     "runtime-main.js": "/dota-2-autochess-builder/static/js/runtime-main.ac5c89c2.js",
     "runtime-main.js.map": "/dota-2-autochess-builder/static/js/runtime-main.ac5c89c2.js.map",
     "static/css/2.85b49db4.chunk.css": "/dota-2-autochess-builder/static/css/2.85b49db4.chunk.css",
-    "static/js/2.48f162a9.chunk.js": "/dota-2-autochess-builder/static/js/2.48f162a9.chunk.js",
-    "static/js/2.48f162a9.chunk.js.map": "/dota-2-autochess-builder/static/js/2.48f162a9.chunk.js.map",
+    "static/js/2.558e723b.chunk.js": "/dota-2-autochess-builder/static/js/2.558e723b.chunk.js",
+    "static/js/2.558e723b.chunk.js.map": "/dota-2-autochess-builder/static/js/2.558e723b.chunk.js.map",
     "index.html": "/dota-2-autochess-builder/index.html",
-    "precache-manifest.67a5db3375f66dce512223f020613856.js": "/dota-2-autochess-builder/precache-manifest.67a5db3375f66dce512223f020613856.js",
+    "precache-manifest.b372de9676a68a391acf9602de496303.js": "/dota-2-autochess-builder/precache-manifest.b372de9676a68a391acf9602de496303.js",
     "service-worker.js": "/dota-2-autochess-builder/service-worker.js",
     "static/css/2.85b49db4.chunk.css.map": "/dota-2-autochess-builder/static/css/2.85b49db4.chunk.css.map",
     "static/css/main.ba79a66c.chunk.css.map": "/dota-2-autochess-builder/static/css/main.ba79a66c.chunk.css.map",
-    "static/js/2.48f162a9.chunk.js.LICENSE.txt": "/dota-2-autochess-builder/static/js/2.48f162a9.chunk.js.LICENSE.txt",
+    "static/js/2.558e723b.chunk.js.LICENSE.txt": "/dota-2-autochess-builder/static/js/2.558e723b.chunk.js.LICENSE.txt",
     "static/media/Assassin.png": "/dota-2-autochess-builder/static/media/Assassin.aec6c3b0.png",
     "static/media/Beast.png": "/dota-2-autochess-builder/static/media/Beast.87edbcee.png",
     "static/media/Demon Hunter.png": "/dota-2-autochess-builder/static/media/Demon Hunter.4075d856.png",
@@ -42,8 +42,8 @@
   "entrypoints": [
     "static/js/runtime-main.ac5c89c2.js",
     "static/css/2.85b49db4.chunk.css",
-    "static/js/2.48f162a9.chunk.js",
+    "static/js/2.558e723b.chunk.js",
     "static/css/main.ba79a66c.chunk.css",
-    "static/js/main.c4fb7f7b.chunk.js"
+    "static/js/main.81db4183.chunk.js"
   ]
 }
